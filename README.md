@@ -1,2 +1,2 @@
-# Evocab-fontend
-the fontend of app use kotlin, java 
+# Evocab-frontend
+the frontend of app use kotlin, java 
