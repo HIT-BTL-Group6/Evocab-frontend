@@ -1,2 +1,3 @@
 # Evocab-frontend
-the frontend of app use kotlin, java 
+The Frontend of app use Kotlin, Java 
+This is our project
