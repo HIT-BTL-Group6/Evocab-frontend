@@ -26,10 +26,10 @@ class IntroActivity : BaseActivity<ActivityIntroBinding>(ActivityIntroBinding::i
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this,MainActivity::class.java))
-        },3000 )
+        },2000 )
 
         binding.lottie.animate().setDuration(2000).setStartDelay(0)
-        binding.view.animate().setDuration(2000).rotationY(360f).setStartDelay(0)
+//        binding.view.animate().setDuration(2000).rotationY(360f).setStartDelay(0)
 
     }
 }
