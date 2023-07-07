@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Evocab</string>
+    <string name="already_have_an_account">Đã có tài khoản?</string>
+    <string name="login">Đăng nhập</string>
+    <string name="signup">Đăng ký</string>
+    <string name="password">Mật khẩu</string>
+    <string name="username">Tên đăng nhập</string>
 </resources>
