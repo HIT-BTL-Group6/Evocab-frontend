@@ -5,4 +5,13 @@
     <string name="signup">Đăng ký</string>
     <string name="password">Mật khẩu</string>
     <string name="username">Tên đăng nhập</string>
+    <string name="gorgotpass">Quên mật khẩu</string>
+    <string name="enterEmail">Nhập địa chỉ email</string>
+    <string name="send">Gửi</string>
+    <string name="enterVerifiCode">Nhập mã xác nhận</string>
+    <string name="VerifiCodeErorrMess">Mã xác nhận chưa đúng</string>
+    <string name="email_error_mess">Email nhập không đúng</string>
+    <string name="username_format">Gồm 8 ký tự trở lên</string>
+    <string name="pass_format">Gồm chữ và số</string>
+    <string name="email_format">Chưa đúng định dạng email</string>
 </resources>
