@@ -44,12 +44,24 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_name_acti"
         app:layout_constraintVertical_bias="0.16000003">
 
+        <TextView
+            android:id="@+id/username_error_mess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên đăng nhập không đúng"
+            android:textColor="@color/red"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/input_username"
+            app:layout_constraintEnd_toEndOf="@+id/input_username"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/input_username" />
+
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/input_username"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_input"
             android:elevation="10dp"
@@ -82,8 +94,20 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/passw_error_mess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mật khẩu không đúng"
+            android:textColor="@color/red"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/input_pass"
+            app:layout_constraintEnd_toEndOf="@+id/input_pass"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/input_pass" />
+
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/input_pass"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
@@ -96,7 +120,7 @@
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+            app:layout_constraintTop_toBottomOf="@+id/input_username">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -140,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Forgot password?"
+            android:text="Quên mật khẩu?"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/btn_login"
             app:layout_constraintHorizontal_bias="0.495"
@@ -152,27 +176,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:text="Remember me"
+            android:text="Nhớ mật khẩu"
             android:textColor="@color/txt_blurred"
             android:textSize="14dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/input_pass"
             app:layout_constraintHorizontal_bias="0.12"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintStart_toStartOf="@+id/input_pass"
+            app:layout_constraintTop_toBottomOf="@+id/input_pass" />
 
         <TextView
             android:id="@+id/txt_signup_change_acti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
+            android:text="Đăng ký"
             android:textColor="@color/red"
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/checkBox"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/input_pass"
             app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/input_pass"
             app:layout_constraintTop_toTopOf="@+id/checkBox" />
 
 
