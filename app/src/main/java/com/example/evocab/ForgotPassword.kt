@@ -18,7 +18,7 @@ class ForgotPassword : BaseActivity<ActivityForgotPasswordBinding>(ActivityForgo
                 VerifiCode()
 
             }else{
-                EnterEmail()
+                startActivity(Intent(this, NewPassword::class.java))
             }
         }
         binding.txtLoginChangeActi.setOnClickListener {

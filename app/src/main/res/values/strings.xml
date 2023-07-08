@@ -14,4 +14,6 @@
     <string name="username_format">Gồm 8 ký tự trở lên</string>
     <string name="pass_format">Gồm chữ và số</string>
     <string name="email_format">Chưa đúng định dạng email</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="enter_new_pass">Nhập mật khẩu mới</string>
 </resources>

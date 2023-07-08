@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Evocab"
         tools:targetApi="31">
         <activity
+            android:name=".NewPassword"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ForgotPassword"
             android:exported="true">
             <meta-data
@@ -46,7 +53,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
