@@ -8,7 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-//import com.example.sourcebase.ultils.extension.start
+import com.example.evocab.base.BaseViewModel
+import com.example.evocab.extension.start
 
 abstract class BaseFragment<VB: ViewBinding>(
     private val BindingInflater: (LayoutInflater) -> VB
@@ -17,10 +18,10 @@ abstract class BaseFragment<VB: ViewBinding>(
     protected val binding get() = _binding as VB
     protected abstract val viewModel: BaseViewModel
     private val dialog by lazy{context?.let { Dialog(it) }}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initData()
-
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,17 +29,19 @@ abstract class BaseFragment<VB: ViewBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = BindingInflater(layoutInflater)
+
+
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*viewModel.isLoading.observe(viewLifecycleOwner) {
+        viewModel.isLoading.observe(viewLifecycleOwner) {
             if (it) {
                 dialog?.start(false)
             } else {
                 dialog?.dismiss()
             }
-        }*/
+        }
         handleEvent()
         bindData()
         destroy()

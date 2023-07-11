@@ -1,15 +1,23 @@
-package com.example.evocab
+package com.example.evocab.ui.forgotpass
 
-import android.content.Intent
 import android.os.CountDownTimer
 import android.view.View
-import com.example.evocab.databinding.ActivityForgotPasswordBinding
-import com.example.sourcebase.base.BaseActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.evocab.R
+import com.example.evocab.databinding.FragmentForgotPassBinding
+import com.example.sourcebase.base.BaseFragment
 
-class ForgotPassword : BaseActivity<ActivityForgotPasswordBinding>(ActivityForgotPasswordBinding::inflate) {
+class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgotPassBinding::inflate) {
     var isEnterEmail: Boolean = true
+    override val viewModel: ForgotPassViewModel
+        get() = ViewModelProvider(this)[ForgotPassViewModel::class.java]
+
+    override fun destroy() {
+        super.onDestroy()
+    }
+
     override fun initData() {
-        EnterEmail()
     }
 
     override fun handleEvent() {
@@ -18,19 +26,19 @@ class ForgotPassword : BaseActivity<ActivityForgotPasswordBinding>(ActivityForgo
                 VerifiCode()
 
             }else{
-                startActivity(Intent(this, NewPassword::class.java))
+                findNavController().navigate(R.id.action_forgotPassFragment_to_newPassFragment)
             }
         }
         binding.txtLoginChangeActi.setOnClickListener {
-            startActivity(Intent(this, LogIn::class.java))
+            findNavController().navigate(R.id.action_forgotPassFragment_to_logInFragment)
         }
         binding.txtSignupChangeActi.setOnClickListener {
-            startActivity(Intent(this, SignUp::class.java))
+            findNavController().navigate(R.id.action_forgotPassFragment_to_signUpFragment)
         }
     }
 
     override fun bindData() {
-
+        EnterEmail()
     }
 
     fun EnterEmail(){
