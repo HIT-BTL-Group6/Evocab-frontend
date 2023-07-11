@@ -5,7 +5,8 @@
     android:background="@drawable/bg_login_signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewPassword">
+    tools:context=".activity.MainActivity">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="450dp"
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/new_password"
+        android:text="@string/gorgotpass"
         android:textColor="@color/white"
         android:textSize="27dp"
         android:textStyle="bold"
@@ -33,7 +34,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="365dp"
+        android:layout_height="310dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/bg_input_signup_login"
@@ -43,24 +44,13 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_name_acti"
         app:layout_constraintVertical_bias="0.16000003">
 
-        <TextView
-            android:id="@+id/passw_error_mess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pass_format"
-            android:textColor="@color/red"
-            android:textSize="11dp"
-            app:layout_constraintBottom_toTopOf="@+id/enter_pass"
-            app:layout_constraintEnd_toEndOf="@+id/enter_pass"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="@+id/enter_pass" />
 
         <LinearLayout
-            android:id="@+id/enter_pass"
+            android:id="@+id/input_email"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_input"
             android:elevation="10dp"
@@ -76,42 +66,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/padlock"
+                android:src="@drawable/email"
                 app:tint="#80000000"
                 tools:layout_editor_absoluteX="27dp"
                 tools:layout_editor_absoluteY="91dp" />
 
             <EditText
-                android:id="@+id/edt_pass"
+                android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="12dp"
                 android:background="@null"
-                android:hint="@string/password"
+                android:hint="Email"
                 android:inputType="textPersonName"
                 android:textColor="@color/color_text_input"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/passw_again_error_mess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mật khẩu nhập lại chưa khớp"
-            android:textColor="@color/red"
-            android:textSize="11dp"
-            app:layout_constraintBottom_toTopOf="@+id/enter_pass_again"
-            app:layout_constraintEnd_toEndOf="@+id/enter_pass_again"
-            app:layout_constraintHorizontal_bias="0.14"
-            app:layout_constraintStart_toStartOf="@+id/enter_pass_again" />
-
         <LinearLayout
-            android:id="@+id/enter_pass_again"
+            android:id="@+id/input_Verifi_code"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_input"
             android:elevation="10dp"
@@ -121,25 +98,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_pass">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/padlock"
-                app:tint="#80000000"
-                tools:layout_editor_absoluteX="27dp"
-                tools:layout_editor_absoluteY="91dp" />
-
+            app:layout_constraintTop_toBottomOf="@+id/txt_request">
             <EditText
-                android:id="@+id/edt_pass_again"
+                android:id="@+id/edt_verifi_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="12dp"
                 android:background="@null"
-                android:hint="Nhập lại mật khẩu"
+                android:hint="Mã xác nhận"
                 android:inputType="textPersonName"
                 android:textColor="@color/color_text_input"
                 android:textStyle="bold" />
@@ -150,22 +117,22 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="70dp"
             android:background="@drawable/bg_btn_login_signup"
             android:text="@string/send"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_pass_again"></Button>
+            app:layout_constraintTop_toBottomOf="@+id/input_email"></Button>
 
         <TextView
             android:id="@+id/txt_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/enter_new_pass"
+            android:text="@string/enterEmail"
             android:textColor="@color/color_text_input"
             android:textSize="18dp"
             android:textStyle="bold"
@@ -222,6 +189,33 @@
                 tools:layout_editor_absoluteY="13dp" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/error_mess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="Email nhập không đúng"
+            android:textColor="@color/red"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toTopOf="@+id/input_email"
+            app:layout_constraintEnd_toEndOf="@+id/input_email"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/input_email" />
+
+        <TextView
+            android:id="@+id/time_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0:25"
+            android:textSize="15dp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/input_email"
+            app:layout_constraintEnd_toEndOf="@+id/txt_request"
+            app:layout_constraintStart_toStartOf="@+id/txt_request"
+            app:layout_constraintTop_toBottomOf="@+id/txt_request"
+            app:layout_constraintVertical_bias="0.18" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView

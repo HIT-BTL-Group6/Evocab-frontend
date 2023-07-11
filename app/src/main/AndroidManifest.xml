@@ -22,7 +22,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ForgotPassword"
+            android:name=".ui.forgotpass.ForgotPassword"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -36,26 +36,13 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignUp"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.IntroActivity"
-            android:exported="true">
+            android:name=".activity.MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
     </application>
 
