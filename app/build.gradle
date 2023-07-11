@@ -52,7 +52,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}"
 
-    def lottieVersion = "3.4.0"
+    def lottieVersion = "6.0.1"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
