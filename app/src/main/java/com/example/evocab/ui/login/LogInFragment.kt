@@ -4,7 +4,6 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
-//import com.example.evocab.UI.SignUp.SignUpFragment
 import com.example.evocab.databinding.FragmentLogInBinding
 import com.example.sourcebase.base.BaseFragment
 
@@ -21,7 +20,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
 
     override fun handleEvent() {
         binding.btnLogin.setOnClickListener {
-
+            findNavController().navigate(R.id.action_logInFragment_to_settingFragment)
         }
         binding.txtSignupChangeActi.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)

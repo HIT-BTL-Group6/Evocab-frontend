@@ -18,4 +18,18 @@
     <string name="enter_new_pass">Nhập mật khẩu mới</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change">Thay đổi</string>
+    <string name="dialog_name_change_user">Đổi tên người dùng</string>
+    <string name="dialog_name_change_email">Đổi Email</string>
+    <string name="dialog_name_change_password">Đổi mật khẩu</string>
+    <string name="dialog_name_change_date">Đổi ngày sinh</string>
+    <string name="old_username">Tên người dùng cũ</string>
+    <string name="old_pass">Mật khẩu cũ</string>
+    <string name="old_email">Địa chỉ email cũ</string>
+    <string name="new_email">Địa chỉ email mới</string>
+    <string name="new_pass_again">Xác nhận mật khẩu mới</string>
+    <string name="new_username">Tên người dùng mới</string>
+    <string name="confirm_username">Xác nhận lại tên người dùng</string>
+    <string name="notify_on">Thông báo đã được bật</string>
+    <string name="notify_off">Thông báo đã được tắt</string>
 </resources>
