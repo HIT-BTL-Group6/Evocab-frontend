@@ -15,27 +15,6 @@
         android:theme="@style/Theme.Evocab"
         tools:targetApi="31">
         <activity
-            android:name=".NewPassword"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.forgotpass.ForgotPassword"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".LogIn"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true" >
             <intent-filter>

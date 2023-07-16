@@ -127,7 +127,7 @@
                 android:layout_marginRight="12dp"
                 android:background="@null"
                 android:hint="@string/password"
-                android:inputType="textPersonName"
+                android:inputType="numberPassword"
                 android:textColor="@color/color_text_input"
                 android:textStyle="bold" />
         </LinearLayout>
