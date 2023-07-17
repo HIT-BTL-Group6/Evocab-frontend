@@ -1,16 +1,10 @@
 package com.example.evocab.ui.report
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.evocab.base.BaseViewModel
-import com.example.evocab.databinding.FragmentReportBinding
+import com.example.evocab.databinding.FragmentSettingBinding
 import com.example.sourcebase.base.BaseFragment
 
-class ReportFragment : BaseFragment<FragmentReportBinding>(FragmentReportBinding::inflate) {
+class ReportFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {
     override val viewModel: ReportViewModel
         get() = ViewModelProvider(this)[ReportViewModel::class.java]
 
