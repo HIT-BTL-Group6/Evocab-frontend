@@ -8,10 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentSettingBinding
-import com.example.evocab.extension.openDlChangeDate
-import com.example.evocab.extension.openDlChangeEmail
-import com.example.evocab.extension.openDlChangePassword
-import com.example.evocab.extension.openDlChangeUser
+import com.example.evocab.extension.*
 import com.example.sourcebase.base.BaseFragment
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {
