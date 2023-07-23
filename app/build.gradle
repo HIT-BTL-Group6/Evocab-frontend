@@ -63,4 +63,24 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:${navigation_version}"
     implementation "androidx.navigation:navigation-fragment-ktx:${navigation_version}"
     implementation "androidx.navigation:navigation-ui-ktx:${navigation_version}"
+
+
+    // create client
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${retrofit_version}"
+
+    // logging && config client
+    def okhttp_version = "4.7.2"
+    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okhttp_version}"
+
+    // dependency injection
+    def koin_version = "3.3.0"
+    def koin_core_version = "3.2.2"
+    implementation "io.insert-koin:koin-core:${koin_core_version}"
+    implementation "io.insert-koin:koin-android:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-navigation:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-compose:${koin_version}"
 }

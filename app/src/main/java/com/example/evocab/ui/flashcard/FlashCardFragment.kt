@@ -9,7 +9,6 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.core.animation.addListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
@@ -53,7 +52,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
     }
 
     override fun bindData() {
-        FrontFlashCard()
+        frontFlashCard()
     }
     private var isFrontVisible = true
     private fun FlipCard(){
@@ -67,7 +66,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
                 if (isFrontVisible) {
                     BackFlashCard()
                 } else {
-                    FrontFlashCard()
+                    frontFlashCard()
                 }
                 isFrontVisible = !isFrontVisible
                 o2.start()
@@ -76,33 +75,33 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         o1.start()
         o1.setDuration(1000)
     }
-    fun FrontFlashCard(){
-        binding.cardView3.setVisibility(View.GONE)
-        binding.explainVocabVienamese.setVisibility(View.GONE)
-        binding.vocabNameMeaning.setVisibility(View.GONE)
-        binding.cardView2.setVisibility(View.VISIBLE)
-        binding.vocabName.setVisibility(View.VISIBLE)
-        binding.explainVocab.setVisibility(View.VISIBLE)
-        binding.txtUk.setVisibility(View.VISIBLE)
-        binding.txtUs.setVisibility(View.VISIBLE)
-        binding.UkPronounce.setVisibility(View.VISIBLE)
-        binding.UsPronounce.setVisibility(View.VISIBLE)
-        binding.speaker1.setVisibility(View.VISIBLE)
-        binding.speaker2.setVisibility(View.VISIBLE)
+    fun frontFlashCard(){
+        binding.cardView3.visibility = View.GONE
+        binding.explainVocabVienamese.visibility = View.GONE
+        binding.vocabNameMeaning.visibility = View.GONE
+        binding.cardView2.visibility = View.VISIBLE
+        binding.vocabName.visibility = View.VISIBLE
+        binding.explainVocab.visibility = View.VISIBLE
+        binding.txtUk.visibility = View.VISIBLE
+        binding.txtUs.visibility = View.VISIBLE
+        binding.UkPronounce.visibility = View.VISIBLE
+        binding.UsPronounce.visibility = View.VISIBLE
+        binding.speaker1.visibility = View.VISIBLE
+        binding.speaker2.visibility = View.VISIBLE
     }
     fun BackFlashCard(){
-        binding.cardView3.setVisibility(View.VISIBLE)
-        binding.explainVocabVienamese.setVisibility(View.VISIBLE)
-        binding.vocabNameMeaning.setVisibility(View.VISIBLE)
-        binding.cardView2.setVisibility(View.INVISIBLE)
-        binding.vocabName.setVisibility(View.INVISIBLE)
-        binding.explainVocab.setVisibility(View.INVISIBLE)
-        binding.txtUk.setVisibility(View.INVISIBLE)
-        binding.txtUs.setVisibility(View.INVISIBLE)
-        binding.UkPronounce.setVisibility(View.INVISIBLE)
-        binding.UsPronounce.setVisibility(View.INVISIBLE)
-        binding.speaker1.setVisibility(View.INVISIBLE)
-        binding.speaker2.setVisibility(View.INVISIBLE)
+        binding.cardView3.visibility = View.VISIBLE
+        binding.explainVocabVienamese.visibility = View.VISIBLE
+        binding.vocabNameMeaning.visibility = View.VISIBLE
+        binding.cardView2.visibility = View.INVISIBLE
+        binding.vocabName.visibility = View.INVISIBLE
+        binding.explainVocab.visibility = View.INVISIBLE
+        binding.txtUk.visibility = View.INVISIBLE
+        binding.txtUs.visibility = View.INVISIBLE
+        binding.UkPronounce.visibility = View.INVISIBLE
+        binding.UsPronounce.visibility = View.INVISIBLE
+        binding.speaker1.visibility = View.INVISIBLE
+        binding.speaker2.visibility = View.INVISIBLE
     }
 
     private fun showPopupMenu(view: View) {

@@ -50,4 +50,9 @@ abstract class BaseFragment<VB: ViewBinding>(
     abstract fun initData()
     abstract fun handleEvent()
     abstract fun bindData()
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dialog?.dismiss()
+    }
 }
