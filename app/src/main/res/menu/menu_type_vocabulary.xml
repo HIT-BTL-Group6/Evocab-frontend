@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/new_vocabulary"
+        android:title="Flash card"
+        />
+    <item
+        android:id="@+id/missed"
+        android:title="Chưa nhớ"
+        />
+    <item
+        android:id="@+id/remembered"
+        android:title="Đã nhớ"
+        />
+</menu>

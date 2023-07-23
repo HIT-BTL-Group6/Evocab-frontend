@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_word"
+    android:id="@+id/item_vocab"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+
+    <TextView
+        android:id="@+id/id_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/"
+        android:textColor="#4A81E3"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16000003" />
+
+    <TextView
+        android:id="@+id/meaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Anh trai"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/id_item"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/id_item"
+        app:layout_constraintTop_toBottomOf="@+id/id_item" />
+
+    <TextView
+        android:id="@+id/word_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="Brother"
+        android:textColor="#4A81E3"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/id_item"
+        app:layout_constraintStart_toEndOf="@+id/id_item"
+        app:layout_constraintTop_toTopOf="@+id/id_item" />
+
+    <TextView
+        android:id="@+id/type_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="(n)"
+        android:textColor="#669CFD"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/word_english"
+        app:layout_constraintStart_toEndOf="@+id/word_english"
+        app:layout_constraintTop_toTopOf="@+id/word_english" />
+
+    <TextView
+        android:id="@+id/pronounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="/ˈbrəT͟Hər/"
+        android:textColor="#F30B2E"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/type_word"
+        app:layout_constraintStart_toEndOf="@+id/type_word"
+        app:layout_constraintTop_toTopOf="@+id/type_word" />
+
+    <ImageView
+        android:id="@+id/noted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/contract_no" />
+</androidx.constraintlayout.widget.ConstraintLayout>
