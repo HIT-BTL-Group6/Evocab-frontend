@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Xoay từ 0 độ đến 90 độ (mặt trước sẽ quay ra phía bên trái) -->
+    <objectAnimator
+        android:propertyName="rotationY"
+        android:valueFrom="0.0"
+        android:valueTo="90.0"
+        android:duration="5000"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+
+    <!-- Ẩn mặt trước khi hoàn thành quay -->
+    <objectAnimator
+        android:propertyName="alpha"
+        android:valueTo="0.0"
+        android:startOffset="500"
+        android:duration="1" />
+
+    <!-- Hiển thị mặt sau từ 90 độ đến 180 độ (mặt sau sẽ quay từ phía bên trái ra phía bên phải) -->
+    <objectAnimator
+        android:propertyName="rotationY"
+        android:valueFrom="90.0"
+        android:valueTo="180.0"
+        android:duration="5000"
+        android:startOffset="500"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+
+    <!-- Hiển thị mặt sau khi hoàn thành quay -->
+    <objectAnimator
+        android:propertyName="alpha"
+        android:valueTo="1.0"
+        android:startOffset="1000"
+        android:duration="1" />
+</set>

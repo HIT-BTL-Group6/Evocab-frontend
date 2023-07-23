@@ -13,6 +13,7 @@ import com.example.evocab.databinding.DlChangeDateBinding
 import com.example.evocab.databinding.DlChangeEmailBinding
 import com.example.evocab.databinding.DlChangePasswordlBinding
 import com.example.evocab.databinding.DlChangeUserBinding
+import com.example.evocab.databinding.DlNotedBinding
 import com.example.evocab.databinding.DlReportBinding
 import java.util.Calendar
 
@@ -195,6 +196,30 @@ fun Dialog.openDlReport(stopFlag: Boolean = false) {
         this.dismiss()
     }
 
+    setCancelable(stopFlag)
+    show()
+}
+fun Dialog.openDlNoted(stopFlag: Boolean = false) {
+    val binding = DlNotedBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+    window?.apply {
+        setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        attributes.apply {
+            gravity = Gravity.CENTER
+        }
+    }
+    binding.btnCencal.setOnClickListener {
+        this.dismiss()
+    }
+    binding.btnOk.setOnClickListener {
+        val dialog = context?.let { it1 -> Dialog(it1) }
+        dialog?.openDlOk(true)
+        this.dismiss()
+    }
     setCancelable(stopFlag)
     show()
 }
