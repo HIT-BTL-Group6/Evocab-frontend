@@ -19,4 +19,10 @@
     <color name="grey">#E2E2E2</color>
     <color name="light_blue">#B4E4FF</color>
     <color name="light_red">#FD8A8A</color>
+    <color name="light_green">#C1FFD7</color>
+    <color name="light_brown">#A1862B0D</color>
+    <color name="light_purple">#FFCEFE</color>
+    <color name="light_navy">#98A8F8</color>
+    <color name="light_yellow">#FFDCA9</color>
+
 </resources>

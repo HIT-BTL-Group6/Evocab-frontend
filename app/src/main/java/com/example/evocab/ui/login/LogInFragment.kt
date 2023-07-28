@@ -20,7 +20,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
 
     override fun handleEvent() {
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_logInFragment_to_settingFragment)
+            findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
         }
         binding.txtSignupChangeActi.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
