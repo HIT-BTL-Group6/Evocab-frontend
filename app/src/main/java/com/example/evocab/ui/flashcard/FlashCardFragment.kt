@@ -49,6 +49,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         binding.speaker2.setOnClickListener {
             Toast.makeText(context, "Đã chạm speaker UK", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     override fun bindData() {
@@ -116,6 +117,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
                 }
                 R.id.remembered -> {
                     // Xử lý khi người dùng chọn Item 2
+                    findNavController().navigate(R.id.action_flashCardFragment_to_practiceFragment)
                     true
                 }
                 R.id.new_vocabulary -> {
