@@ -3,9 +3,10 @@ package com.example.sourcebase.base
 import android.view.View
 import androidx.recyclerview.widget.*
 import com.example.evocab.base.BaseViewHolder
+import com.example.evocab.model.Vocabulary
 import java.util.concurrent.Executors
 
-abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<T>) :
+abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<Vocabulary>) :
     ListAdapter<T, VH>(  //Constructor
         AsyncDifferConfig.Builder(diffUtil)
             .setBackgroundThreadExecutor(Executors.newSingleThreadExecutor())

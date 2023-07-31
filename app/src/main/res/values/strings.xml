@@ -40,4 +40,8 @@
     <string name="string_learning_how_long">Bạn đã học liên tục 30 ngày</string>
     <string name="string_username">Username</string>
     <string name="string_family">Family</string>
+    <string name="string_user_gmail">usercontact@gmail.com</string>
+    <string name="string_user_date">10/10/2000</string>
+    <string name="message_error_new_password_encorrect">Mật khẩu nhập lại chưa khớp</string>
+    <string name="hint_rewrite_password">Nhập lại mật khẩu</string>
 </resources>
