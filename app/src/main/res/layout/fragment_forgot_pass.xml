@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_login_signup"
+    android:id="@+id/forgotPassFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_login_signup"
     tools:context=".activity.MainActivity">
 
     <ImageView
@@ -83,6 +84,7 @@
                 android:textColor="@color/color_text_input"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/input_Verifi_code"
             android:layout_width="0dp"
@@ -99,6 +101,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_request">
+
             <EditText
                 android:id="@+id/edt_verifi_code"
                 android:layout_width="match_parent"
@@ -208,8 +211,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="0:25"
-            android:textSize="15dp"
             android:textColor="@color/red"
+            android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/input_email"
             app:layout_constraintEnd_toEndOf="@+id/txt_request"

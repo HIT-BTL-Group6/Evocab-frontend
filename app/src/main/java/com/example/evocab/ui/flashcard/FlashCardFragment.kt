@@ -111,7 +111,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
                 R.id.missed -> {
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+                    findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
                     true
                 }
                 R.id.remembered -> {

@@ -44,7 +44,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
             dialog?.openDlChangeDate()
         }
         binding.txtLogout.setOnClickListener {
-            findNavController().navigate(R.id.action_settingFragment_to_flashCardFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
         }
         binding.btnSetImg.setOnClickListener {
             contract.launch("image/*")
