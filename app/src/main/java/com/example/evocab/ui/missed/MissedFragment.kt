@@ -57,7 +57,7 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
                 R.id.missed -> {
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+                    findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
                     true
                 }
                 R.id.remembered -> {
