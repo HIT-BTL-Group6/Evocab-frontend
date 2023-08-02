@@ -25,7 +25,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         setupWithNavController(binding.navView, navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-//                R.id.logInFragment -> setNavigationVisible(true)
+                R.id.homeFragment -> setNavigationVisible(true)
+                R.id.flashCardFragment ->setNavigationVisible(true)
+                R.id.profileFragment ->setNavigationVisible(true)
+                R.id.settingFragment ->setNavigationVisible(true)
 
                 else -> setNavigationVisible()
             }

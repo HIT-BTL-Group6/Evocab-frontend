@@ -17,7 +17,7 @@ data class Vocabulary(
     companion object {
         val differUtil = object : DiffUtil.ItemCallback<Vocabulary>(){
             override fun areItemsTheSame(oldItem: Vocabulary, newItem: Vocabulary) =
-                oldItem.id ==newItem.id
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Vocabulary, newItem: Vocabulary) =
                 oldItem.id  == newItem.id

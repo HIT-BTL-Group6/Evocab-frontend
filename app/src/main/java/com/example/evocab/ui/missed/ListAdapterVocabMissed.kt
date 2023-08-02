@@ -4,7 +4,6 @@ package com.example.evocab.ui.missed
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.evocab.base.BaseViewHolder
 import com.example.evocab.databinding.ItemVovabularyBinding
 import com.example.evocab.model.Vocabulary
