@@ -2,7 +2,6 @@ package com.example.evocab.ui.profile
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.evocab.base.BaseViewHolder
 import com.example.evocab.databinding.ItemListFriendBinding
 import com.example.evocab.model.Friend

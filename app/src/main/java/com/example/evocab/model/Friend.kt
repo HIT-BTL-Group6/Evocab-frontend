@@ -10,11 +10,11 @@ data class Friend(
     val img_avt: String?
 ): Parcelable{
     companion object {
-        val differUtil = object : DiffUtil.ItemCallback<Vocabulary>(){
-            override fun areItemsTheSame(oldItem: Vocabulary, newItem: Vocabulary) =
+        val differUtil = object : DiffUtil.ItemCallback<Friend>(){
+            override fun areItemsTheSame(oldItem: Friend, newItem: Friend) =
                 oldItem.id ==newItem.id
 
-            override fun areContentsTheSame(oldItem: Vocabulary, newItem: Vocabulary) =
+            override fun areContentsTheSame(oldItem: Friend, newItem: Friend) =
                 oldItem.id  == newItem.id
         }
     }

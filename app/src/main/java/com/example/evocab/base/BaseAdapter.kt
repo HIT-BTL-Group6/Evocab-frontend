@@ -6,8 +6,9 @@ import com.example.evocab.base.BaseViewHolder
 import com.example.evocab.model.Vocabulary
 import java.util.concurrent.Executors
 
-abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<Vocabulary>) :
-    ListAdapter<T, VH>(  //Constructor
+
+abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<T>) :
+    ListAdapter<T, VH>(
         AsyncDifferConfig.Builder(diffUtil)
             .setBackgroundThreadExecutor(Executors.newSingleThreadExecutor())
             .build()
