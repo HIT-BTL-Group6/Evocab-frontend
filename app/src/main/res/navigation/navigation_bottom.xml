@@ -66,16 +66,31 @@
         android:id="@+id/settingFragment"
         android:name="com.example.evocab.ui.setting.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/flashCardFragment"
         android:name="com.example.evocab.ui.flashcard.FlashCardFragment"
         android:label="fragment_flash_card"
-        tools:layout="@layout/fragment_flash_card" />
+        tools:layout="@layout/fragment_flash_card" >
+        <action
+            android:id="@+id/action_flashCardFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/missedFragment"
         android:name="com.example.evocab.ui.missed.MissedFragment"
-        android:label="MissedFragment" />
+        android:label="MissedFragment" >
+        <action
+            android:id="@+id/action_missedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.evocab.ui.home.HomeFragment"
@@ -89,5 +104,17 @@
         <action
             android:id="@+id/action_homeFragment_to_missedFragment"
             app:destination="@id/missedFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.evocab.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
