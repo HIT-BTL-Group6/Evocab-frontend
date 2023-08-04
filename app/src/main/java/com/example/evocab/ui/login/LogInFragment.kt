@@ -21,6 +21,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
     override fun handleEvent() {
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+            // chưa xong tạm thời chưa xét api user
         }
         binding.txtSignupChangeActi.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)

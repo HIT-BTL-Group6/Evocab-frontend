@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/logInFragment"
+        android:id="@+id/homeFragment"
         android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"
-        />
-
-
-    <item
-        android:id="@+id/forgotPassFragment"
-        android:title="Notification"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_bottom_nav_1"
         />
 
     <item
-        android:id="@+id/fragment_setting"
-        android:title="Setting"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/flashCardFragment"
+        android:title="FlashCard"
+        android:icon="@drawable/ic_bottom_nav_2"
+        />
+
+    <item
+        android:id="@+id/testFragment"
+        android:title="Test"
+        android:icon="@drawable/ic_bottom_nav_3"
+        />
+
+    <item
+        android:id="@+id/groupFragment"
+        android:title="Group"
+        android:icon="@drawable/ic_bottom_nav_4"
+        />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/ic_bottom_nav_5"
         />
 </menu>

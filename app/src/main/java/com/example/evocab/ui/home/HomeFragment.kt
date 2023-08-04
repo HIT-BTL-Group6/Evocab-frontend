@@ -27,6 +27,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
         }
+
+        binding.flMissed.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+
+        }
     }
 
     override fun bindData() {
