@@ -19,6 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun handleEvent() {
 
+
     }
 
     override fun bindData() {
