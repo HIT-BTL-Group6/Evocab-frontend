@@ -26,7 +26,7 @@ class PracticeFragment : BaseFragment<FragmentPracticeBinding>(FragmentPracticeB
 
     override fun handleEvent() {
         binding.btnCheckAnswer.setOnClickListener {
-            findNavController().navigate(R.id.action_practiceFragment_to_examFragment)
+            //findNavController().navigate(R.id.action_practiceFragment_to_examFragment)
         }
     }
 
