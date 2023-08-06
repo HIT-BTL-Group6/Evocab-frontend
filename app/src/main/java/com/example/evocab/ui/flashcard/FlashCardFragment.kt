@@ -31,31 +31,24 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
 
     override fun handleEvent() {
         val dialog = context?.let { it1 -> Dialog(it1) }
-        binding.apply {
-            btnReport.setOnClickListener {
-                dialog?.openDlReport()
-            }
-            btnMenu.setOnClickListener {
-                showPopupMenu(it)
-            }
-            flashcard.setOnClickListener {
-                FlipCard()
-            }
-            btnEdit.setOnClickListener {
-                dialog?.openDlNoted()
-            }
-            speaker1.setOnClickListener {
-                Toast.makeText(context, "Đã chạm speaker US", Toast.LENGTH_SHORT).show()
-            }
-            speaker2.setOnClickListener {
-                Toast.makeText(context, "Đã chạm speaker UK", Toast.LENGTH_SHORT).show()
-            }
-            imgBack.setOnClickListener {
-                findNavController().navigate(R.id.action_flashCardFragment_to_homeFragment)
-            }
+        binding.btnReport.setOnClickListener {
+            dialog?.openDlReport()
         }
-
-
+        binding.btnMenu.setOnClickListener {
+            showPopupMenu(it)
+        }
+        binding.flashcard.setOnClickListener {
+            FlipCard()
+        }
+        binding.btnEdit.setOnClickListener {
+            dialog?.openDlNoted()
+        }
+        binding.speaker1.setOnClickListener {
+            Toast.makeText(context, "Đã chạm speaker US", Toast.LENGTH_SHORT).show()
+        }
+        binding.speaker2.setOnClickListener {
+            Toast.makeText(context, "Đã chạm speaker UK", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -119,12 +112,12 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
                 R.id.missed -> {
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+                    findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
                     true
                 }
                 R.id.remembered -> {
                     // Xử lý khi người dùng chọn Item 2
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+                    findNavController().navigate(R.id.action_flashCardFragment_to_practiceFragment)
                     true
                 }
                 R.id.new_vocabulary -> {
