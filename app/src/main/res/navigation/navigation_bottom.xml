@@ -82,6 +82,9 @@
         <action
             android:id="@+id/action_flashCardFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_flashCardFragment_to_missedFragment"
+            app:destination="@id/missedFragment" />
     </fragment>
     <fragment
         android:id="@+id/missedFragment"
@@ -107,6 +110,12 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_examFragment"
+            app:destination="@id/examFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -117,4 +126,13 @@
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/practiceFragment"
+        android:name="com.example.evocab.ui.practice.PracticeFragment"
+        android:label="fragment_exam"
+        tools:layout="@layout/fragment_exam" />
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="com.example.evocab.ui.exam.ExamFragment"
+        android:label="ExamFragment" />
 </navigation>
