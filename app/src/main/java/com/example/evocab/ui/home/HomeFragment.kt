@@ -30,7 +30,27 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         binding.flMissed.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-
+        }
+        binding.flNewFlashCard.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
+        }
+        binding.flPractice.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_)
+        }
+        binding.flClassroom.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.flTopic.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.flTest.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.imvUserAvt.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        binding.tvTopicName.setOnClickListener {
+//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
     }
 

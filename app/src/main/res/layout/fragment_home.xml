@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/FrameLayoutMain"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F0FBFB"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
@@ -17,7 +18,7 @@
             android:id="@+id/cardView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:cardCornerRadius="50dp"
+            app:cardCornerRadius="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="20dp">
@@ -26,11 +27,11 @@
                 android:id="@+id/imv_user_avt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_home_element_light_blue" />
+                android:src="@drawable/h1_1048" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -46,28 +47,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_continuous_days_of_learning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_home_check"
             android:text="@string/string_learning_how_long"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/username"
             app:layout_constraintHorizontal_bias="0.094"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/username"
+            app:layout_constraintTop_toBottomOf="@+id/username"
             tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
 
-        <TextView
+        <View
             android:id="@+id/btnSettings"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/ic_home_setting"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,39 +90,60 @@
                 android:id="@+id/tv_topic_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/string_family"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <SeekBar
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="30"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sb_home_topic"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:padding="10dp"
+                    android:progress="30"
+                    android:progressDrawable="@drawable/bg_seekbar_home"
+                    android:thumb="@drawable/bg_seekbar_home"/>
+
+                <TextView
+                    android:id="@+id/tv_percent"
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/percent"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+            </LinearLayout>
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/img_topic_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_topic_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -137,14 +159,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:id="@+id/fl_1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
@@ -158,15 +180,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="What do you want \nto do to day"
+                    android:text="@string/script"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
                     android:contentDescription="img_plant"
                     android:src="@drawable/ic_home_plant"
                     tools:ignore="HardcodedText" />
@@ -184,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fl_1">
 
                 <FrameLayout
-                    android:id="@+id/fl_2"
+                    android:id="@+id/fl_new_flashCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -216,7 +239,7 @@
                     android:layout_weight="1" />
 
                 <FrameLayout
-                    android:id="@+id/fl_3"
+                    android:id="@+id/fl_classroom"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -244,10 +267,11 @@
             </LinearLayout>
 
             <FrameLayout
-                android:id="@+id/frameLayout2"
+                android:id="@+id/fl_test"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_home_element_light_green"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -258,16 +282,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Test"
+                    android:text="@string/test"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
                     android:contentDescription="img_plant"
                     android:src="@drawable/ic_home_test"
                     tools:ignore="HardcodedText" />
@@ -275,14 +301,14 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/frameLayout3"
+                android:id="@+id/fl_remembered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_brown"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -290,9 +316,9 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:padding="5dp"
-                    android:text="Từ vựng đã nhớ"
+                    android:text="@string/remembered"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -304,14 +330,14 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/frameLayout4"
+                android:id="@+id/fl_practice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_purple"
-                app:layout_constraintStart_toEndOf="@+id/frameLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+                app:layout_constraintEnd_toEndOf="@id/fl_test"
+                app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -319,9 +345,9 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:paddingTop="30dp"
-                    android:text="Luyện Tập"
+                    android:text="@string/practice"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -335,24 +361,24 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/flMissed"
+                android:id="@+id/fl_missed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_navy"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/frameLayout5"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
+                app:layout_constraintTop_toBottomOf="@+id/fl_practice"
+                app:layout_constraintStart_toEndOf="@id/fl_topic"
+                app:layout_constraintEnd_toEndOf="@id/fl_practice">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:text="chưa nhớ"
+                    android:text="@string/missed"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -364,14 +390,14 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/frameLayout5"
+                android:id="@+id/fl_topic"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_yellow"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/fl_remembered">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -379,9 +405,9 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:padding="10dp"
-                    android:text="Chủ đề"
+                    android:text="@string/topic"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <ImageView
