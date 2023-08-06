@@ -19,31 +19,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun handleEvent() {
-        binding.apply {
-            btnSettings.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
-            }
-            btnMissed.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-            }
-            btnFlashcard.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
-            }
-            btnClassroom.setOnClickListener {
-                //findNavController().navigate(R.id.)
-            }
-            btnTest.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_examFragment)
-            }
-            btnTopic.setOnClickListener {
+        binding.btnSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+        }
 
-            }
-            btnRemembered.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-            }
-            btnPractice.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
-            }
+        binding.flMissed.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.flNewFlashCard.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
+        }
+        binding.flPractice.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_)
+        }
+        binding.flClassroom.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.flTopic.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.flTest.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+        }
+        binding.imvUserAvt.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        binding.tvTopicName.setOnClickListener {
+//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
 

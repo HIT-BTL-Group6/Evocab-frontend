@@ -31,7 +31,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -47,20 +47,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_continuous_days_of_learning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_home_check"
             android:text="@string/string_learning_how_long"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/username"
             app:layout_constraintHorizontal_bias="0.094"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/username"
+            app:layout_constraintTop_toBottomOf="@+id/username"
             tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
 
-        <TextView
+        <View
             android:id="@+id/btnSettings"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -68,7 +68,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/ic_home_setting"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,32 +96,54 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-            <SeekBar
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="30"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/sb_home_topic"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:padding="10dp"
+                    android:progress="30"
+                    android:progressDrawable="@drawable/bg_seekbar_home"
+                    android:thumb="@drawable/bg_seekbar_home"/>
+
+                <TextView
+                    android:id="@+id/tv_percent"
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/percent"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+            </LinearLayout>
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/img_back"
+            android:id="@+id/img_topic_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_topic_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -144,7 +166,7 @@
 
             <LinearLayout
                 android:id="@+id/fl_1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
@@ -158,10 +180,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="What do you want \nto do to day"
+                    android:text="@string/script"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -186,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fl_1">
 
                 <FrameLayout
-                    android:id="@+id/btn_flashcard"
+                    android:id="@+id/fl_new_flashCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -197,10 +218,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
-                        android:text="New flashcard"
-                        android:layout_marginTop="10dp"
+                        android:text="New\nflashcard"
                         android:textColor="@color/black"
-                        android:textSize="18dp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
 
@@ -209,8 +229,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="60dp"
                         android:src="@drawable/ic_bottom_nav_2" />
                 </FrameLayout>
 
@@ -220,7 +239,7 @@
                     android:layout_weight="1" />
 
                 <FrameLayout
-                    android:id="@+id/btn_classroom"
+                    android:id="@+id/fl_classroom"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -233,9 +252,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="Classroom"
-                        android:layout_marginTop="10dp"
                         android:textColor="@color/black"
-                        android:textSize="18dp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
 
@@ -243,38 +261,37 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="60dp"
                         android:src="@drawable/img_home_group_black" />
                 </FrameLayout>
             </LinearLayout>
 
             <FrameLayout
-                android:id="@+id/btn_test"
+                android:id="@+id/fl_test"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_home_element_light_green"
-                app:layout_constraintEnd_toEndOf="@+id/fl_1"
-                app:layout_constraintStart_toStartOf="@+id/fl_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Test"
+                    android:text="@string/test"
                     android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:textSize="18dp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="60dp"
                     android:contentDescription="img_plant"
                     android:src="@drawable/ic_home_test"
                     tools:ignore="HardcodedText" />
@@ -282,117 +299,83 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/btn_remembered"
+                android:id="@+id/fl_remembered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_brown"
-                app:layout_constraintEnd_toEndOf="@+id/btn_test"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/btn_test"
-                app:layout_constraintTop_toBottomOf="@+id/btn_test">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:text="Từ vựng đã nhớ"
+                    android:padding="5dp"
+                    android:text="@string/remembered"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="60dp"
                     android:src="@drawable/check" />
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/btn_practice"
-                android:layout_width="0dp"
+                android:id="@+id/fl_practice"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_purple"
-                app:layout_constraintEnd_toEndOf="@+id/btn_test"
-                app:layout_constraintStart_toEndOf="@+id/btn_remembered"
-                app:layout_constraintTop_toBottomOf="@+id/btn_test">
+                app:layout_constraintEnd_toEndOf="@id/fl_test"
+                app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:text="Luyện Tập"
-                    android:layout_marginTop="10dp"
+                    android:paddingTop="30dp"
+                    android:text="@string/practice"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="60dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="40dp"
                     android:src="@drawable/ic_home_pracctice" />
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/btn_missed"
+                android:id="@+id/fl_missed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_navy"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btn_test"
-                app:layout_constraintStart_toEndOf="@+id/btn_topic"
-                app:layout_constraintTop_toBottomOf="@+id/btn_practice">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="Chưa nhớ"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/ic_home_remembering" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/btn_topic"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_home_element_light_yellow"
-                app:layout_constraintStart_toStartOf="@+id/btn_test"
-                app:layout_constraintTop_toBottomOf="@+id/btn_remembered">
+                app:layout_constraintTop_toBottomOf="@+id/fl_practice"
+                app:layout_constraintStart_toEndOf="@id/fl_topic"
+                app:layout_constraintEnd_toEndOf="@id/fl_practice">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:text="Chủ đề"
+                    android:text="@string/missed"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -400,9 +383,36 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_home_remembering" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_home_element_light_yellow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_remembered">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:text="@string/topic"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <ImageView
                     android:padding="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp"
                     android:src="@drawable/ic_home_topics" />
             </FrameLayout>
 
