@@ -26,7 +26,7 @@
                     android:id="@+id/imv_avt_classroom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/h1_1048"></ImageView>
+                    app:srcCompat="@drawable/h1_1048"/>
 
                 <ImageView
                     android:id="@+id/imageView9"

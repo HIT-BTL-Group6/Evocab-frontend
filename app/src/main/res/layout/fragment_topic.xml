@@ -42,9 +42,9 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/img_profile_settings"
-            app:layout_constraintStart_toEndOf="@+id/img_profile_back"
-            app:layout_constraintTop_toTopOf="@+id/img_profile_back" />
+            app:layout_constraintEnd_toStartOf="@+id/img_topic_settings"
+            app:layout_constraintStart_toEndOf="@+id/img_topic_back"
+            app:layout_constraintTop_toTopOf="@+id/img_topic_back" />
 
         <LinearLayout
             android:id="@+id/linearLayout5"
@@ -73,7 +73,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:hint="Tìm Kiếm"
-                android:padding="20dp" />
+                android:padding="15dp" />
 
         </LinearLayout>
 

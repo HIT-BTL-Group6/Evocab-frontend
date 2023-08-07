@@ -16,8 +16,8 @@
             android:id="@+id/action_logInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_logInFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            android:id="@+id/action_logInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPassFragment"
@@ -37,7 +37,6 @@
         android:id="@+id/splashFragment"
         android:name="com.example.evocab.ui.splash.SplashFragment"
         android:label="SplashFragment" >
-
 
         <action
             android:id="@+id/action_splashFragment_to_logInFragment"
@@ -73,8 +72,8 @@
             android:id="@+id/action_settingFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
-            android:id="@+id/action_settingFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_settingFragment2_to_profileFragment"
+            app:destination="@id/profileFragment2" />
     </fragment>
     <fragment
         android:id="@+id/flashCardFragment"
@@ -107,8 +106,8 @@
             android:id="@+id/action_homeFragment_to_missedFragment"
             app:destination="@id/missedFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_homeFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
         <action
             android:id="@+id/action_homeFragment_to_practiceFragment"
             app:destination="@id/practiceFragment" />
@@ -124,30 +123,22 @@
         <action
             android:id="@+id/action_homeFragment_to_topicFragment"
             app:destination="@id/topicFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.evocab.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/practiceFragment"
         android:name="com.example.evocab.ui.practice.PracticeFragment"
         android:label="fragment_practice"
-        tools:layout="@layout/fragment_practice" >
-        <action
-            android:id="@+id/action_practiceFragment_to_examFragment"
-            app:destination="@id/examFragment" />
-            android:id="@+id/action_profileFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/practiceFragment"
-        android:name="com.example.evocab.ui.practice.PracticeFragment"
-        android:label="fragment_exam"
-        tools:layout="@layout/fragment_exam" >
-        <action
-            android:id="@+id/action_practiceFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_practice" />
+
+</fragment>
     <fragment
         android:id="@+id/examFragment"
         android:name="com.example.evocab.ui.exam.ExamFragment"
@@ -186,4 +177,5 @@
             android:id="@+id/action_topicFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
     </fragment>
+
 </navigation>

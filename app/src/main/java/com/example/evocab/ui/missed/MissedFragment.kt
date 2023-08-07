@@ -29,7 +29,7 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
     }
 
     override fun handleEvent() {
-        binding.imgBack.setOnClickListener {
+        binding.imvMissedBack.setOnClickListener {
             findNavController().navigate(R.id.action_missedFragment_to_homeFragment)
         }
     }
