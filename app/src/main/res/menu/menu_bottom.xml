@@ -13,14 +13,14 @@
         />
 
     <item
-        android:id="@+id/testFragment"
+        android:id="@+id/writeMeaningFragment"
         android:title="Test"
         android:icon="@drawable/ic_bottom_nav_3"
         />
 
     <item
-        android:id="@+id/groupFragment"
-        android:title="Group"
+        android:id="@+id/classroomFragment"
+        android:title="Classroom"
         android:icon="@drawable/ic_bottom_nav_4"
         />
 

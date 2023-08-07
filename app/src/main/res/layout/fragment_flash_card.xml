@@ -69,41 +69,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/progressbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/flashcard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="parent">
-
-            <SeekBar
-                android:id="@+id/sb_home_topic"
-                android:layout_width="336dp"
-                android:layout_height="wrap_content"
-                android:max="100"
-                android:padding="10dp"
-                android:progress="30"
-                android:progressDrawable="@drawable/bg_seekbar_home"
-                android:thumb="@drawable/bg_seekbar_home" />
-
-            <TextView
-                android:id="@+id/tv_percent"
-                android:layout_width="64dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/percent"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flashcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -344,6 +309,30 @@
         app:layout_constraintStart_toStartOf="@+id/missed"
         app:layout_constraintTop_toBottomOf="@+id/missed" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progressbar"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_progressbar1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value_of_progressbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/progressbar_in"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_progressbar2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

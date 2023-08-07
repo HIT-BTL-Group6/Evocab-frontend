@@ -30,6 +30,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 R.id.flashCardFragment ->setNavigationVisible(true)
                 R.id.profileFragment ->setNavigationVisible(true)
                 R.id.settingFragment ->setNavigationVisible(true)
+                R.id.classroomFragment -> setNavigationVisible(true)
+                R.id.writeMeaningFragment -> setNavigationVisible(true)
 
                 else -> setNavigationVisible()
             }
