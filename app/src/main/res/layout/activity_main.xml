@@ -28,7 +28,7 @@
             android:id="@+id/nav_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:itemBackground="?android:windowBackground"
+            android:background="@drawable/bg_bottom_nav"
             app:itemIconTint="@color/bottom_navigation_selected"
             app:itemTextColor="@color/bottom_navigation_selected"
             app:labelVisibilityMode="labeled"

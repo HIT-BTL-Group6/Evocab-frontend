@@ -42,7 +42,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintHorizontal_bias="0.083"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:drawableLeft="@drawable/ic_home_check"
             android:text="@string/string_learning_how_long"
             app:layout_constraintEnd_toEndOf="@+id/username"
@@ -64,11 +64,11 @@
             android:id="@+id/btnSettings"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/ic_home_setting"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/cslo_1">
 
         <LinearLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/ln_topic_learning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -131,7 +131,7 @@
             android:layout_marginEnd="20dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            app:layout_constraintTop_toTopOf="@+id/img_topic_2"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -142,7 +142,7 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/img_home_family"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            app:layout_constraintTop_toBottomOf="@+id/ln_topic_learning"
             tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -271,8 +271,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/bg_home_element_light_green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -364,9 +364,9 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_navy"
-                app:layout_constraintTop_toBottomOf="@+id/fl_practice"
+                app:layout_constraintEnd_toEndOf="@id/fl_practice"
                 app:layout_constraintStart_toEndOf="@id/fl_topic"
-                app:layout_constraintEnd_toEndOf="@id/fl_practice">
+                app:layout_constraintTop_toBottomOf="@+id/fl_practice">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -408,11 +408,11 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:padding="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="60dp"
+                    android:padding="20dp"
                     android:src="@drawable/ic_home_topics" />
             </FrameLayout>
 

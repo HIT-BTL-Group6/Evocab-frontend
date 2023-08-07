@@ -116,25 +116,25 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         val popupMenu = PopupMenu(context, view)
         popupMenu.inflate(R.menu.menu_type_vocabulary)
 
-        popupMenu.setOnMenuItemClickListener {it->
-            when (it.itemId) {
-                R.id.missed -> {
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
-                    true
-                }
-                R.id.remembered -> {
-                    // Xử lý khi người dùng chọn Item 2
-                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
-                    true
-                }
-                R.id.new_vocabulary -> {
-                    // Xử lý khi người dùng chọn Item 3
-                    true
-                }
-                // Xử lý các item khác (nếu cần)
-                else -> false
-            }
-        }
+//        popupMenu.setOnMenuItemClickListener {it->
+//            when (it.itemId) {
+////                R.id.missed -> {
+////                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+////                    true
+////                }
+////                R.id.remembered -> {
+////                    // Xử lý khi người dùng chọn Item 2
+////                    findNavController().navigate(R.id.action_flashCardFragment_to_missedFragment)
+////                    true
+////                }
+////                R.id.new_vocabulary -> {
+////                    // Xử lý khi người dùng chọn Item 3
+////                    true
+////                }
+////                // Xử lý các item khác (nếu cần)
+////                else -> false
+////            }
+//        }
 
         // Hiển thị Popup Menu
         popupMenu.show()
