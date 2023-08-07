@@ -1,5 +1,10 @@
 package com.example.evocab.ui.home
 
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
@@ -19,36 +24,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     override fun handleEvent() {
-        binding.apply {
-            btnSettings.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
-            }
-            btnMissed.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-            }
-            btnFlashcard.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
-            }
-            btnClassroom.setOnClickListener {
-                //findNavController().navigate(R.id.)
-            }
-            btnTest.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_examFragment)
-            }
-            btnTopic.setOnClickListener {
-
-            }
-            btnRemembered.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-            }
-            btnPractice.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
-            }
+        binding.btnSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
         }
 
+        binding.flMissed.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
 
-
-
+        }
     }
 
     override fun bindData() {
