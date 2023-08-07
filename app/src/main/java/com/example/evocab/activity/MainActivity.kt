@@ -28,7 +28,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             when (destination.id) {
                 R.id.homeFragment -> setNavigationVisible(true)
                 R.id.flashCardFragment ->setNavigationVisible(true)
-                R.id.examFragment ->setNavigationVisible(true)
                 R.id.profileFragment ->setNavigationVisible(true)
                 R.id.settingFragment ->setNavigationVisible(true)
 
