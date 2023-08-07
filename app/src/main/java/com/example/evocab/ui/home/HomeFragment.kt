@@ -30,8 +30,31 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         binding.flMissed.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-
         }
+        binding.flNewFlashCard.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
+        }
+        binding.flPractice.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
+        }
+        binding.flClassroom.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_classroomFragment)
+        }
+        binding.flTopic.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_topicFragment)
+        }
+        binding.flTest.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_writeMeaningFragment)
+        }
+        binding.imvUserAvt.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        // không thể kéo thả thanh được nữa
+        binding.sbHomeTopic.isEnabled = false
+        binding.lnTopicLearning.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_topicFragment)
+        }
+
     }
 
     override fun bindData() {

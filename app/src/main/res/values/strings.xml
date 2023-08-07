@@ -44,4 +44,12 @@
     <string name="string_user_date">10/10/2000</string>
     <string name="message_error_new_password_encorrect">Mật khẩu nhập lại chưa khớp</string>
     <string name="hint_rewrite_password">Nhập lại mật khẩu</string>
+    <string name="avt_description">This is user\'s avt</string>
+    <string name="percent">0%</string>
+    <string name="script">What do you want \nto do to day</string>
+    <string name="test">Test</string>
+    <string name="remembered">Từ vựng đã nhớ</string>
+    <string name="practice">Luyện Tập</string>
+    <string name="missed">chưa nhớ</string>
+    <string name="topic">Chủ đề</string>
 </resources>

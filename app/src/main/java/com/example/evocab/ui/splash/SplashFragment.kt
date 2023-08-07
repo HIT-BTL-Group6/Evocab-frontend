@@ -28,7 +28,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
     override fun bindData() {
         Handler(Looper.getMainLooper()).postDelayed({
             findNavController().navigate(R.id.action_splashFragment_to_logInFragment)
-
         },2000 )
         binding.lottie.animate().setDuration(2000).setStartDelay(0)
     }

@@ -29,7 +29,9 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
     }
 
     override fun handleEvent() {
-
+        binding.imvMissedBack.setOnClickListener {
+            findNavController().navigate(R.id.action_missedFragment_to_homeFragment)
+        }
     }
 
     override fun bindData() {
@@ -56,7 +58,7 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
 
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
-                R.id.missed -> {
+                R.id.missedFragment -> {
                     findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
                     true
                 }
@@ -64,8 +66,9 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
                     // Xử lý khi người dùng chọn Item 2
                     true
                 }
-                R.id.new_vocabulary -> {
-                    // Xử lý khi người dùng chọn Item 3
+                R.id.flashCardFragment-> {
+//                     Xử lý khi người dùng chọn Item 3
+//                    findNavController().navigate(R.id.mis)
                     true
                 }
                 // Xử lý các item khác (nếu cần)
