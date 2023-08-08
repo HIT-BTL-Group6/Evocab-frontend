@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.evocab.ui.signup.SignUpFragment"
+        android:name="com.example.evocab.ui.register.SignUpFragment"
         android:label="SignUpFragment" >
         <action
             android:id="@+id/action_signUpFragment_to_logInFragment"

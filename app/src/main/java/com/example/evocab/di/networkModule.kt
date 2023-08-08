@@ -25,15 +25,15 @@ private fun provideOkHttpClient(): OkHttpClient {
         .readTimeout(ApiConstant.TIMEOUT.READ, TimeUnit.SECONDS)
         .writeTimeout(ApiConstant.TIMEOUT.WRITE, TimeUnit.SECONDS)
         .addInterceptor(httpLoggingInterceptor)
-//        .addInterceptor { chain ->
-//            val authorRequest = chain.request().newBuilder()
+        .addInterceptor { chain ->
+            val authorRequest = chain.request().newBuilder()
 //                .header(
 //                    ApiConstant.AUTHORIZATION,
 //                    "${ApiConstant.BEARER} ${sharedPreferences.getTokenLogin()}"
 //                )
-//                .build()
-//            chain.proceed(authorRequest)
-//        }
+                .build()
+            chain.proceed(authorRequest)
+        }
 
     return okHttpClient.build()
 }

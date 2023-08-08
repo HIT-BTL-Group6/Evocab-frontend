@@ -6,4 +6,5 @@ import retrofit2.Retrofit
 
 val apiModule = module {
     single { get<Retrofit>().create(ApiService::class.java) }
+    single { get<Retrofit>().create(ApiService.AuthenticationService::class.java) }
 }

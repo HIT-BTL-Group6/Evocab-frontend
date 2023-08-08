@@ -13,6 +13,8 @@ class SettingViewModel(private val searchRepo: ISearchRepository) : BaseViewMode
     private val _searchResults = MutableLiveData<Root>()
     val searchResults: LiveData<Root> get() = _searchResults
 
+
+
     fun searchByName(searchKey: String) {
         executeTask(
             request = {

@@ -4,13 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 open class BaseViewModel: ViewModel() {
 
-    private val Loading: MutableLiveData<Boolean> = MutableLiveData(false)
-    private val error: MutableLiveData<String> = MutableLiveData("")
+    protected val Loading: MutableLiveData<Boolean> = MutableLiveData(false)
+    protected val error: MutableLiveData<String> = MutableLiveData("")
     val isLoading: LiveData<Boolean> get() = Loading
     val isError: LiveData<String> get() = error
     private fun showLoading(){
@@ -19,6 +21,11 @@ open class BaseViewModel: ViewModel() {
     private fun hideLoading(){
         Loading.value = false
     }
+//    private val compositeDisposable = CompositeDisposable()
+//
+//    protected fun registerDisposable(disposable: Disposable) {
+//        compositeDisposable.add(disposable)
+//    }
     protected fun <T> executeTask(
         request: suspend CoroutineScope.() -> DataResult<T>,
         onSuccess: (T) -> Unit,
@@ -28,7 +35,6 @@ open class BaseViewModel: ViewModel() {
 
         if (showLoading) showLoading()
         viewModelScope.launch {
-
             when (val response = request(this)) {
                 is DataResult.Success -> {
                     onSuccess(response.data)
@@ -38,6 +44,7 @@ open class BaseViewModel: ViewModel() {
                     onError(response.exception)
                     hideLoading()
                 }
+                else -> {}
             }
         }
     }
