@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:layout_marginStart="20dp"
@@ -123,8 +124,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                app:hintEnabled="false">
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
                 <EditText
                     android:id="@+id/edt_pass"
                     android:layout_width="match_parent"
@@ -251,5 +253,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.00999999" />
+
+    <EditText
+        android:id="@+id/edt_pass_again"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textColor="@color/color_text_input"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,5 +20,8 @@ interface ApiService {
 
         @POST(ApiConstant.ENDPOINT.LOGIN)
         suspend fun login(@Body login: UserRequestLogin): BaseResponseLogin
+
+        @POST(ApiConstant.ENDPOINT.FORGOTPASSWORD)
+        suspend fun forgotpassword(@Body forgotPass: UserRequestForgotPass): BaseReponseForgotPass
     }
 }

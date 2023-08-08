@@ -1,4 +1,4 @@
-package com.example.evocab.activity
+package com.example.evocab.ui.main
 
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController

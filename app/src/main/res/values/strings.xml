@@ -10,7 +10,9 @@
     <string name="send">Gửi</string>
     <string name="enterVerifiCode">Nhập mã xác nhận</string>
     <string name="VerifiCodeErorrMess">Mã xác nhận chưa đúng</string>
-    <string name="email_error_mess">Email nhập không đúng</string>
+    <string name="email_error_mess">Email không đúng</string>
+    <string name="username_error_mess">Tên đăng nhập không đúng</string>
+    <string name="pass_error_mess">Mật khẩu không đúng</string>
     <string name="username_format">Ít nhất 3 ký tự gồm chữ thường, chữ in hoa, dấu gạch dưới</string>
     <string name="username_already">Username đã tồn tại</string>
     <string name="pass_format"> Ít nhất 8 ký tự gồm chữ hoa, chữ thường, số, ký tự đặc biệt</string>

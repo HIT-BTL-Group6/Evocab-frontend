@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentSignUpBinding
-import com.example.evocab.model.User
 import com.example.evocab.model.UserRequestRegister
 import com.example.evocab.utils.constant.Constant
 import com.example.sourcebase.base.BaseFragment
@@ -30,15 +29,22 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
                 val userName: String = edtUser.text.toString()
                 val pass: String = edtPass.text.toString()
                 val email: String = edtEmail.text.toString()
+                val passsAgian: String =edtPassAgain.text.toString()
 
                  //val view: List<EditText> = listOf(edtPass, edtEmail, edtUser)
-//                 checkPass(pass)
-//                 checkEmail(email)
-//                 checkUser(userName)
+                 checkPass(pass)
+                 checkEmail(email)
+                 checkUser(userName)
+
+                 Log.e(TAG, "handleEvent checkpass: ${checkPass(pass)} ", )
+                 Log.e(TAG, "handleEvent chekcEmail: ${checkEmail(email)} ", )
+                 Log.e(TAG, "handleEvent checkUser: ${checkUser(userName)} ", )
                  if(checkPass(pass) && checkEmail(email) && checkUser(userName)){
-                     Toast.makeText(context, "Đăng ký thành công", Toast.LENGTH_SHORT).show()
-                     val registerUser = UserRequestRegister(userName, pass, email)
+                     Toast.makeText(context, "Nhập đúng", Toast.LENGTH_SHORT).show()
+                     val registerUser = UserRequestRegister(userName, pass, passsAgian, email)
+                     Log.e(TAG, "handleEvent: ${registerUser}", )
                      viewModel.registerByEmail(registerUser)
+                     userNameAnhPassExist()
                  }
 
             }
@@ -75,14 +81,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
             binding.emailErrorMess.text = context?.getString(R.string.email_format)
         }
         else{
-            viewModel.messsageError.observe(this){
-                Log.e(TAG, "checkEmail: ${it.toString()}", )
-                when (it) {
-                    Constant.Error.EMAIL_ALREADY
-                        -> binding.emailErrorMess.text = context?.getString(R.string.email_ALready)
-                    else -> binding.emailErrorMess.text = ""
-                }
-            }
+                binding.emailErrorMess.text = ""
         }
         return binding.emailErrorMess.text ==""
     }
@@ -90,16 +89,25 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
         val usernameRegex = Regex("^[a-zA-Z0-9._-]{3,}$")
         if(!user.matches(usernameRegex)){
             binding.usernameErrorMess.text = context?.getString(R.string.username_format)
-        }else{
-            viewModel.messsageError.observe(this){
-                Log.e(TAG, "checkUser: ${it.toString()}", )
-                when (it) {
-                    Constant.Error.USERNAME_ALREADY
+        }
+        else{
+            binding.usernameErrorMess.text = ""
+        }
+        return binding.usernameErrorMess.text ==""
+    }
+    private fun userNameAnhPassExist(){
+        viewModel.messsageError.observe(this){
+            Log.e(TAG, "checkEmail: ${it.toString()}", )
+            when (it) {
+                Constant.Error.EMAIL_ALREADY
+                        -> binding.emailErrorMess.text = context?.getString(R.string.email_ALready)
+                Constant.Error.USERNAME_ALREADY
                         -> binding.usernameErrorMess.text = context?.getString(R.string.username_already)
-                    else -> binding.usernameErrorMess.text = ""
+                else -> {
+                    Toast.makeText(context, "Đăng ký thành công", Toast.LENGTH_SHORT).show()
+                    binding.emailErrorMess.text = ""
                 }
             }
         }
-        return binding.usernameErrorMess.text ==""
     }
 }

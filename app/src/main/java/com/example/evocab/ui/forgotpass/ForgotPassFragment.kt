@@ -7,11 +7,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentForgotPassBinding
 import com.example.sourcebase.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgotPassBinding::inflate) {
     var isEnterEmail: Boolean = true
-    override val viewModel: ForgotPassViewModel
-        get() = ViewModelProvider(this)[ForgotPassViewModel::class.java]
+    override val viewModel by viewModel<ForgotPassViewModel>()
 
     override fun destroy() {
         super.onDestroy()
