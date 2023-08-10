@@ -11,6 +11,6 @@ fun SharedPreferences.saveTokenLogin(token: String) {
     this.edit().putString(Constant.SHARED_PREF_TOKEN_LOGIN, token).apply()
 }
 
-//fun SharedPreferences.destroyTokenLogin(): Boolean {
-//    return this.edit().remove(Constant.SHARED_PREF_TOKEN_LOGIN).commit()
-//}
+fun SharedPreferences.destroyTokenLogin(): Boolean {
+    return this.edit().remove(Constant.SHARED_PREF_TOKEN_LOGIN).commit()
+}
