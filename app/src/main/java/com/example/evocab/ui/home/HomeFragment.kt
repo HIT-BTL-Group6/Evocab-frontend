@@ -37,25 +37,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 val bundle = bundleOf(EXTRAS_USER to viewModel.getResults.value)
                 findNavController().navigate(R.id.action_homeFragment_to_settingFragment, bundle)
             }
-            btnMissed.setOnClickListener {
+            flMissed.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
             }
             btnFlashcard.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
             }
-            btnClassroom.setOnClickListener {
+            flClassroom.setOnClickListener {
                 //findNavController().navigate(R.id.)
             }
-            btnTest.setOnClickListener {
+            flTest.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_examFragment)
             }
-            btnTopic.setOnClickListener {
+            flTopic.setOnClickListener {
 
             }
-            btnRemembered.setOnClickListener {
+            flRemembered.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
             }
-            btnPractice.setOnClickListener {
+            flPractice.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
             }
         }
@@ -68,7 +68,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 Log.e(TAG, "bindData: Message là ${it}", )
                 when(it){
                     Constant.MessageAPI.GetUser.GET_USER_INFRO_SUCCESSFUL ->{
-                        binding.txtUsername.text = getResults.value?.username
+                        binding.username.text = getResults.value?.username
                         Log.e(TAG, "bindData: Thành công", )
                     }
                     Constant.MessageAPI.GetUser.GET_USER_INFRO_BAD -> {
