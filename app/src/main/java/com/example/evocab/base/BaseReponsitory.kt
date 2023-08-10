@@ -15,7 +15,7 @@ open class BaseReponsitory {
         return withContext(dispatcher) {
             try {
                 DataResult.Success(request())
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 DataResult.Error(e)
             }
         }

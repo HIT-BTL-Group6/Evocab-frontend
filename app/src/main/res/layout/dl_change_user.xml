@@ -72,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="@+id/cha0"
             app:layout_constraintStart_toStartOf="@+id/cha0"
             app:layout_constraintTop_toBottomOf="@+id/cha0">
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_new_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,8 +83,10 @@
                 android:inputType="textPersonName"
                 android:paddingLeft="30dp"
                 android:paddingTop="10dp"
+                android:paddingRight="30dp"
                 android:paddingBottom="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btn_ok"

@@ -73,6 +73,7 @@
                 android:inputType="textEmailAddress"
                 android:textColor="@color/color_text_input"
                 android:paddingLeft="30dp"
+                android:paddingRight="30dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp" />
 

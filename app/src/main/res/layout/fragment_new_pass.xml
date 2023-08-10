@@ -53,7 +53,7 @@
             android:textSize="11sp"
             app:layout_constraintBottom_toTopOf="@+id/enter_pass"
             app:layout_constraintEnd_toEndOf="@+id/enter_pass"
-            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.24"
             app:layout_constraintStart_toStartOf="@+id/enter_pass" />
 
         <LinearLayout
@@ -82,17 +82,21 @@
                 tools:layout_editor_absoluteX="27dp"
                 tools:layout_editor_absoluteY="91dp" />
 
-            <EditText
-                android:id="@+id/edt_pass"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="12dp"
-                android:background="@null"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false">
+                <EditText
+                    android:id="@+id/edt_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/color_text_input"
+                    android:textStyle="normal" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <TextView
@@ -104,7 +108,7 @@
             android:textSize="11sp"
             app:layout_constraintBottom_toTopOf="@+id/enter_pass_again"
             app:layout_constraintEnd_toEndOf="@+id/enter_pass_again"
-            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="@+id/enter_pass_again" />
 
         <LinearLayout
@@ -133,17 +137,21 @@
                 tools:layout_editor_absoluteX="27dp"
                 tools:layout_editor_absoluteY="91dp" />
 
-            <EditText
-                android:id="@+id/edt_pass_again"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="12dp"
-                android:background="@null"
-                android:hint="@string/hint_rewrite_password"
-                android:inputType="textPassword"
-                android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false">
+                <EditText
+                    android:id="@+id/edt_pass_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/hint_rewrite_password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/color_text_input"
+                    android:textStyle="normal" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <Button

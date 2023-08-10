@@ -6,7 +6,7 @@
     android:background="#F0FBFB"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cslo_1"
@@ -124,7 +124,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/img_topic_1"
+            android:id="@+id/img_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -207,7 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fl_1">
 
                 <FrameLayout
-                    android:id="@+id/fl_new_flashCard"
+                    android:id="@+id/btn_flashcard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"

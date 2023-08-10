@@ -1,20 +1,25 @@
 package com.example.evocab.ui.home
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
 import com.example.evocab.base.BaseViewModel
 import com.example.evocab.databinding.FragmentHomeBinding
+import com.example.evocab.ui.setting.SettingFragment
+import com.example.evocab.utils.constant.Constant
 import com.example.sourcebase.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+
+const val TAG = "HomeFragment"
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
-    override val viewModel: HomeViewModel
-        get() = ViewModelProvider(this)[HomeViewModel::class.java]
+    //private lateinit var userViewModel: BaseViewModel
+    override val viewModel by viewModel<HomeViewModel>()
 
     override fun destroy() {
         super.onDestroy()
@@ -23,40 +28,57 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun initData() {
     }
 
+    companion object{
+        const val EXTRAS_USER = "EXTRAS_USER"
+    }
     override fun handleEvent() {
-        binding.btnSettings.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
-        }
+        binding.apply {
+            btnSettings.setOnClickListener {
+                val bundle = bundleOf(EXTRAS_USER to viewModel.getResults.value)
+                findNavController().navigate(R.id.action_homeFragment_to_settingFragment, bundle)
+            }
+            btnMissed.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+            }
+            btnFlashcard.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
+            }
+            btnClassroom.setOnClickListener {
+                //findNavController().navigate(R.id.)
+            }
+            btnTest.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_examFragment)
+            }
+            btnTopic.setOnClickListener {
 
-        binding.flMissed.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
-        }
-        binding.flNewFlashCard.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
-        }
-        binding.flPractice.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
-        }
-        binding.flClassroom.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_classroomFragment)
-        }
-        binding.flTopic.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_topicFragment)
-        }
-        binding.flTest.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_writeMeaningFragment)
-        }
-        binding.imvUserAvt.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-        }
-        // không thể kéo thả thanh được nữa
-        binding.sbHomeTopic.isEnabled = false
-        binding.lnTopicLearning.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_topicFragment)
+            }
+            btnRemembered.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+            }
+            btnPractice.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
+            }
         }
 
     }
-
     override fun bindData() {
+        viewModel.apply {
+            getInforUser()
+            messageError.observe(viewLifecycleOwner){
+                Log.e(TAG, "bindData: Message là ${it}", )
+                when(it){
+                    Constant.MessageAPI.GetUser.GET_USER_INFRO_SUCCESSFUL ->{
+                        binding.txtUsername.text = getResults.value?.username
+                        Log.e(TAG, "bindData: Thành công", )
+                    }
+                    Constant.MessageAPI.GetUser.GET_USER_INFRO_BAD -> {
+                        Log.e(TAG, "bindData: Thất bại do token sai, đăng nhập lỗi", )
+                    }
+                    else -> {
+                        Log.e(TAG, "bindData: Thất bại do không cái gì đó", )
+                    }
+                }
+            }
+        }
     }
 }

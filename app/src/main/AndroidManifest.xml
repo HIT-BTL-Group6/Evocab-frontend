@@ -12,11 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".MyApplication"
+        android:name=".EvocabApplication"
         android:theme="@style/Theme.Evocab"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

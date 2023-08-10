@@ -13,13 +13,14 @@ import com.example.evocab.databinding.DlChangeDateBinding
 import com.example.evocab.databinding.DlChangeEmailBinding
 import com.example.evocab.databinding.DlChangePasswordlBinding
 import com.example.evocab.databinding.DlChangeUserBinding
+import com.example.evocab.databinding.DlLoadingBinding
 import com.example.evocab.databinding.DlNotedBinding
 import com.example.evocab.databinding.DlReportBinding
 import java.util.Calendar
 
 fun Dialog.start(stopFlag: Boolean = false) {
     val marginY = -170
-    val binding = DlChangeUserBinding.inflate(layoutInflater)
+    val binding = DlLoadingBinding.inflate(layoutInflater)
     setContentView(binding.root)
     window?.apply {
         setLayout(

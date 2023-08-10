@@ -1,70 +1,97 @@
 package com.example.evocab.ui.forgotpass
 
+import android.annotation.SuppressLint
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentForgotPassBinding
+import com.example.evocab.model.ForgotPassEnity
+import com.example.evocab.utils.constant.Constant
 import com.example.sourcebase.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgotPassBinding::inflate) {
-    var isEnterEmail: Boolean = true
-    override val viewModel: ForgotPassViewModel
-        get() = ViewModelProvider(this)[ForgotPassViewModel::class.java]
+    private var isEnterEmail: Boolean = true
+    override val viewModel by viewModel<ForgotPassViewModel>()
 
     override fun destroy() {
-        super.onDestroy()
+
     }
 
     override fun initData() {
     }
 
     override fun handleEvent() {
-        binding.btnSend.setOnClickListener {
-            if(isEnterEmail){
-                VerifiCode()
+        binding.apply {
+            btnSend.setOnClickListener {
+                val _emailOrCode = edtVerifiCode.text.toString()
+                val emailOrCode = ForgotPassEnity(_emailOrCode)
+                if(isEnterEmail){
+                    viewModel.sendCodeToEmail(emailOrCode)
+                    verifiCode()
+                }else{
+                    if(_emailOrCode == viewModel.otp.value){
+                        findNavController().navigate(R.id.action_forgotPassFragment_to_newPassFragment)
+                    }
 
-            }else{
-                findNavController().navigate(R.id.action_forgotPassFragment_to_newPassFragment)
+                }
+            }
+            txtLoginChangeActi.setOnClickListener {
+                findNavController().navigate(R.id.action_forgotPassFragment_to_logInFragment)
+            }
+            txtSignupChangeActi.setOnClickListener {
+                findNavController().navigate(R.id.action_forgotPassFragment_to_signUpFragment)
             }
         }
-        binding.txtLoginChangeActi.setOnClickListener {
-            findNavController().navigate(R.id.action_forgotPassFragment_to_logInFragment)
+        viewModel.messageError.observe(viewLifecycleOwner) {
+            when (it) {
+                Constant.MessageAPI.ForgotPass.EMAIL_VERIFIED_PASS
+                -> {
+                    //xử lý khi email đúng và đã gửi otp
+                    Log.e("EMAIL_VERIFIED_PASS", "handleEvent 2: ${it}",)
+                }
+                Constant.MessageAPI.ForgotPass.EMAIL_VERIFIED_FAIL -> {
+                    //xử lý khi email sai
+                    Log.e("EMAIL_VERIFIED_FAIL", "handleEvent 2: ${it}",)
+                }
+                else -> {
+                    Log.e("1", "handleEvent 2: ${it}",)
+                }
+            }
         }
-        binding.txtSignupChangeActi.setOnClickListener {
-            findNavController().navigate(R.id.action_forgotPassFragment_to_signUpFragment)
-        }
+
     }
 
     override fun bindData() {
-        EnterEmail()
+        enterEmail()
     }
 
-    fun EnterEmail(){
-        binding.errorMess.setVisibility(View.GONE)
-        binding.timeCountdown.setVisibility(View.GONE)
-        binding.inputVerifiCode.setVisibility(View.GONE)
+    fun enterEmail(){
+        binding.errorMess.visibility = View.GONE
+        binding.timeCountdown.visibility = View.GONE
+        binding.inputVerifiCode.visibility = View.GONE
         binding.txtRequest.setText(R.string.enterEmail)
         isEnterEmail = true
     }
 
-    fun VerifiCode(){
-        binding.errorMess.setVisibility(View.GONE)
-        binding.timeCountdown.setVisibility(View.VISIBLE)
-        binding.inputVerifiCode.setVisibility(View.VISIBLE)
+    fun verifiCode(){
+        binding.errorMess.visibility = View.GONE
+        binding.timeCountdown.visibility = View.VISIBLE
+        binding.inputVerifiCode.visibility = View.VISIBLE
         binding.txtRequest.setText(R.string.enterVerifiCode)
         isEnterEmail = false
         object: CountDownTimer(60000, 1000){
+            @SuppressLint("SetTextI18n")
             override fun onTick(millisUntilFinished: Long) {
-                var minute = millisUntilFinished/60000
-                var second = (millisUntilFinished-minute*60000)/1000
-                binding.timeCountdown.text = minute.toString()+":"+ second.toString()
+                val minute = millisUntilFinished/60000
+                val second = (millisUntilFinished-minute*60000)/1000
+                binding.timeCountdown.text = "$minute:$second"
             }
             override fun onFinish() {
-                EnterEmail()
+                enterEmail()
             }
-
         }.start()
 
     }

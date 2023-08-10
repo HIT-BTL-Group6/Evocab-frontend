@@ -37,7 +37,7 @@
         android:layout_height="380dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_input"
+        android:background="@drawable/bg_input_signup_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             android:id="@+id/username_error_mess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên đăng nhập không đúng"
+            android:text=""
             android:textColor="@color/red"
             android:textSize="11dp"
             app:layout_constraintBottom_toTopOf="@+id/input_username"
@@ -82,6 +82,7 @@
                 tools:layout_editor_absoluteY="91dp" />
 
             <EditText
+                android:text="NguyenDuySon"
                 android:id="@+id/edt_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,14 +92,14 @@
                 android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/passw_error_mess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mật khẩu không đúng"
+            android:text=""
             android:textColor="@color/red"
             android:textSize="11dp"
             app:layout_constraintBottom_toTopOf="@+id/input_pass"
@@ -131,17 +132,22 @@
                 tools:layout_editor_absoluteX="27dp"
                 tools:layout_editor_absoluteY="91dp" />
 
-            <EditText
-                android:id="@+id/edt_pass"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="12dp"
-                android:background="@null"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false">
+                <EditText
+                    android:text="Son@28072003"
+                    android:id="@+id/edt_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/color_text_input"
+                    android:textStyle="normal" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <Button

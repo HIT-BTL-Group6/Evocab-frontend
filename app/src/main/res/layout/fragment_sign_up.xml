@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="400dp"
         android:layout_marginStart="20dp"
@@ -53,7 +54,7 @@
             android:textSize="11dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintHorizontal_bias="0.29"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2" />
 
         <LinearLayout
@@ -71,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.060000002">
+            app:layout_constraintVertical_bias="0.07999998">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -83,6 +84,7 @@
                 tools:layout_editor_absoluteY="91dp" />
 
             <EditText
+                android:text="Dinhthi1082"
                 android:id="@+id/edt_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,7 +94,7 @@
                 android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,17 +122,25 @@
                 tools:layout_editor_absoluteX="27dp"
                 tools:layout_editor_absoluteY="91dp" />
 
-            <EditText
-                android:id="@+id/edt_pass"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="12dp"
-                android:background="@null"
-                android:hint="@string/password"
-                android:inputType="numberPassword"
-                android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:text="Dinhthi1082@"
+                    android:id="@+id/edt_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/color_text_input"
+                    android:textStyle="normal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
         </LinearLayout>
 
         <TextView
@@ -142,7 +152,7 @@
             android:textSize="11dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="@+id/linearLayout3" />
 
         <LinearLayout
@@ -171,6 +181,7 @@
                 tools:layout_editor_absoluteY="91dp" />
 
             <EditText
+                android:text="Dinhthi1082@gmail.com"
                 android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +191,7 @@
                 android:hint="Email"
                 android:inputType="textPersonName"
                 android:textColor="@color/color_text_input"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <Button
@@ -230,7 +241,7 @@
             android:textSize="11dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintHorizontal_bias="0.29"
             app:layout_constraintStart_toStartOf="@+id/linearLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -245,5 +256,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.00999999" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
