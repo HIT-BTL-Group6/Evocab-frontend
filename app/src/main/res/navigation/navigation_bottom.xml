@@ -133,14 +133,21 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.evocab.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/practiceFragment"
         android:name="com.example.evocab.ui.practice.PracticeFragment"
         android:label="fragment_practice"
-        tools:layout="@layout/fragment_practice" />
+        tools:layout="@layout/fragment_practice" >
+        <action
+            android:id="@+id/action_practiceFragment_to_examFragment"
+            app:destination="@id/examFragment" />
+    </fragment>
 
-</fragment>
     <fragment
         android:id="@+id/examFragment"
         android:name="com.example.evocab.ui.exam.ExamFragment"

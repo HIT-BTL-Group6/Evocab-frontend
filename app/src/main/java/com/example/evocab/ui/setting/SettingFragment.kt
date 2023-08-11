@@ -80,6 +80,8 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
             binding.apply {
                 txtUser.text = user1.username
                 txtEmail.text = user1.email
+//                txtDate.text =
+                //txtPass.text =
             }
             viewModel.searchResults.observe(this){
 

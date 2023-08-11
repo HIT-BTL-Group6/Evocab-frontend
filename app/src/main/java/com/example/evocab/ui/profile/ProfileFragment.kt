@@ -27,7 +27,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     override fun handleEvent() {
         binding.imgProfileBack.setOnClickListener {
-            findNavController().navigate(R.id.pro)
+            //findNavController().navigate(R.id.pro)
         }
         binding.imgProfileSettings.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment2_to_settingFragment)
