@@ -10,11 +10,9 @@ import retrofit2.http.Query
 // convert giao thuc api -> code
 interface ApiService {
 
+
     @GET(ApiConstant.ENDPOINT.SEARCH_USER)
     suspend fun searchByName(@Query("q") searchKey: String): Root
-    @GET(ApiConstant.ENDPOINT.USER.GET_USER)
-    suspend fun getUserInfor() : BaseReponseUser
-
 
     interface AuthenticationService{
         @POST(ApiConstant.ENDPOINT.AUTHEN.REGISTER)
@@ -28,9 +26,16 @@ interface ApiService {
         suspend fun forgotpassword(@Body forgotPass: ForgotPassEnity): BaseReponseForgotPass
     }
     interface User{
+
+        @GET(ApiConstant.ENDPOINT.USER.GET_USER)
+        suspend fun getUserInfor() : BaseReponseUser
         //chưa sửa
         @PATCH(ApiConstant.ENDPOINT.USER.PATCH_USER)
         suspend fun changUsername(): BaseReponseSetting
+    }
+    interface Topic{
+        @GET(ApiConstant.ENDPOINT.TOPIC.GET_TOPIC)
+        suspend fun getAllTopic(): BaseReponseTopic
     }
 
 }

@@ -13,6 +13,8 @@ import com.example.evocab.data.repository.search.ISearchRepository
 import com.example.evocab.data.repository.search.SearchRepository
 import com.example.evocab.data.repository.setting.ISettingRepository
 import com.example.evocab.data.repository.setting.SettingRepository
+import com.example.evocab.data.repository.topic.ITopicRepository
+import com.example.evocab.data.repository.topic.TopicRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
@@ -22,4 +24,5 @@ val repositoryModule = module {
     single<IForgotpassRepository> { ForgotpassRepository(get()) }
     single<IHomeRepository> { HomeRepository(get()) }
     single<ISettingRepository> { SettingRepository(get()) }
+    single<ITopicRepository> { TopicRepository(get()) }
 }

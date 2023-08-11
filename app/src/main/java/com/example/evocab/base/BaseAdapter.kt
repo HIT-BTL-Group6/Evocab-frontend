@@ -38,7 +38,7 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCal
     //gửi danh sách giá trị mới và xử lý hiển thị layoutNoData khi danh sách rỗng
     override fun submitList(list: List<T>?) {
         super.submitList(list)
-        if (enableShowNoDataUI) {
+//        if (enableShowNoDataUI) {
 //            if (list == null || list.isEmpty()) {
 //                recyclerView?.hide()
 //                layoutNoData?.show()
@@ -46,7 +46,7 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCal
 //                recyclerView?.show()
 //                layoutNoData?.hide()
 //            }
-        }
+//        }
     }
 
     //xử lý sự kiện tải thêm khi người dùng cuộn đến cuối danh sách

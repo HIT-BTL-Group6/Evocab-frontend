@@ -28,6 +28,11 @@ object ApiConstant {
             const val PATCH_USER ="$API_V1_AUTH/me"
         }
 
+        object TOPIC{
+            const val GET_TOPIC = "/api/v1/topics"
+
+        }
+
 
 
     }

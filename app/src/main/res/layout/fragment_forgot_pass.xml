@@ -86,7 +86,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/input_Verifi_code"
+            android:id="@+id/input_Verifi_code1"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_request">
 
             <EditText
-                android:id="@+id/edt_verifi_code"
+                android:id="@+id/edt_verifi_code2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

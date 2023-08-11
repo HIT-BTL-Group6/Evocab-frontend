@@ -1,5 +1,6 @@
 package com.example.evocab.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.evocab.base.BaseViewModel
@@ -23,6 +24,7 @@ class HomeViewModel(private val homeRepository: IHomeRepository): BaseViewModel(
             onSuccess = { _response ->
                 _response.data?.let { _data ->
                     _getResults.value = _data
+                    Log.e(TAG, "getInforUser: user khi get ${_data}", )
                     _messageError.value = _response.message
                 }?: kotlin.run {
                     _messageError.value = _response.message

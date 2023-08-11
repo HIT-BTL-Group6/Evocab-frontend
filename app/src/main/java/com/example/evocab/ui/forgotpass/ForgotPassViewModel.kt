@@ -25,6 +25,7 @@ class ForgotPassViewModel(private val forgotpassRepository: IForgotpassRepositor
                 _response.data?.let { _data ->
                     _messageError.value = _response.message
                     _otp.value = _data
+                    Log.e("TAG", "sendCodeToEmail: ${_otp.value} ", )
                     Log.e("TAG", "sendCodeToEmail: pass ${messageError}", )
                 }?: kotlin.run {
                     _messageError.value = _response.message

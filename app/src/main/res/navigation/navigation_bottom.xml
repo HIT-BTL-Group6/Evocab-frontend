@@ -17,9 +17,7 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_logInFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/logInFragment"
-            app:popUpToInclusive="true"/>
+            app:destination="@id/homeFragment"/>
     </fragment>
     <fragment
         android:id="@+id/forgotPassFragment"
@@ -43,6 +41,11 @@
         <action
             android:id="@+id/action_splashFragment_to_logInFragment"
             app:destination="@id/logInFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true"/>
     </fragment>
@@ -76,6 +79,11 @@
         <action
             android:id="@+id/action_settingFragment2_to_profileFragment"
             app:destination="@id/profileFragment2" />
+        <action
+            android:id="@+id/action_settingFragment_to_logInFragment"
+            app:destination="@id/logInFragment"
+            app:popUpTo="@id/settingFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/flashCardFragment"

@@ -1,31 +1,30 @@
 package com.example.evocab.ui.topic
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.evocab.R
-import com.example.evocab.base.BaseViewModel
 import com.example.evocab.databinding.FragmentTopicBinding
-import com.example.evocab.model.Friend
+import com.example.evocab.extension.hasItem
+import com.example.evocab.model.DataTopicAPI
+import com.example.evocab.model.Practice
 import com.example.evocab.model.Topic
-import com.example.evocab.ui.profile.ProfileAdapter
-import com.example.evocab.ui.profile.ProfileViewModel
+import com.example.evocab.ui.exam.ListAdapterExam
 import com.example.sourcebase.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::inflate) {
 
     // cái này để làm gì
     private val topicAdapter by lazy {
-        TopicAdapter{ {} }
+        ListAdapterTopic(::onClick)
     }
+    private var list: List<DataTopicAPI>? = null
 
-    override val viewModel: BaseViewModel
-        get() = ViewModelProvider(this)[TopicViewModel::class.java]
+    override val viewModel by viewModel<TopicViewModel>()
+
 
     override fun destroy() {
         super.onDestroy()
@@ -36,24 +35,47 @@ class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::in
     }
 
     override fun handleEvent() {
+        binding.imgFind.setOnClickListener {
+            val nameTopicFind = binding.edtFind.text.toString()
+
+            Log.e("TAG", "handleEvent: ${nameTopicFind}", )
+            // Tạo danh sách mới để lưu các item tìm kiếm được
+            val filteredList = list?.filter { dataTopicAPI ->
+                dataTopicAPI.nameTopic?.contains(nameTopicFind, ignoreCase = true) == true
+            }
+            if (filteredList.isNullOrEmpty()) {
+                topicAdapter.submitList(filteredList?.hasItem())
+                binding.txtviewErrorNotFound.visibility = View.VISIBLE
+                Log.e("TopicFragment", "Không tìm thấy kết quả cho \"$nameTopicFind\"")
+            } else {
+                // Cập nhật dữ liệu trong adapter với danh sách tìm kiếm
+                binding.txtviewErrorNotFound.visibility = View.GONE
+                topicAdapter.submitList(filteredList?.hasItem())
+            }
+        }
         binding.imgTopicBack.setOnClickListener {
             findNavController().navigate(R.id.action_topicFragment_to_homeFragment)
         }
-        binding.imgTopicBack.setOnClickListener {
-            findNavController().navigate(R.id.action_topicFragment_to_settingFragment)
+
+    }
+    override fun bindData() {
+        binding.txtviewErrorNotFound.visibility = View.GONE
+        viewModel.getAllTopic()
+
+        viewModel.TopicResults.observe(viewLifecycleOwner){
+            Log.e("TopicFragment", "bindData: dữ liệu lấy liên tục: ${it} ", )
+            if(it!=null){
+                list = it
+                binding.listTopic.adapter = topicAdapter
+                binding.listTopic.layoutManager = LinearLayoutManager(context)
+                topicAdapter.submitList(it.hasItem())
+                Log.e("TopicFragment", "bindData: dữ liệu sau khi lấy: ${viewModel.TopicResults.value} ", )
+            }
         }
     }
-
-    override fun bindData() {
-        val v1: Topic = Topic(1, "Friend", "sdsdfs")
-        val v2: Topic = Topic(2, "vacation", "sdsdfs")
-        val v3: Topic = Topic(2, "vacation", "sdsdfs")
-        val v4: Topic = Topic(2, "vacation", "sdsdfs")
-        val v5: Topic = Topic(2, "vacation", "sdsdfs")
-        val topics= listOf(v1, v2, v3, v4,v5)
-        topicAdapter.submitList(topics)
-        binding.listTopic.layoutManager = LinearLayoutManager(context)
-        binding.listTopic.adapter = topicAdapter
-
+    private fun onClick(topic: DataTopicAPI) {
+        Toast.makeText(context, "Item lớn", Toast.LENGTH_SHORT).show()
+        Log.e("chạm", "đã chạm item")
     }
+
 }

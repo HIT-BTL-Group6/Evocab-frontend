@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_gradient_smaller"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,22 +17,14 @@
 
         <ImageView
             android:id="@+id/img_topic_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/img"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/img_topic_settings"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_profile_settings"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -42,42 +34,56 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/img_topic_settings"
-            app:layout_constraintStart_toEndOf="@+id/img_topic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/img_topic_back"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5"
             app:layout_constraintTop_toTopOf="@+id/img_topic_back" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bg_input"
             android:orientation="horizontal"
             android:padding="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_topic_back">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/img_find"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_classroom_search_2" />
+                android:layout_marginStart="8dp"
+                android:src="@drawable/search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:id="@+id/edt_find"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="10dp"
                 android:hint="Tìm Kiếm"
-                android:padding="15dp" />
-
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="@+id/img_find"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_find"
+                app:layout_constraintTop_toTopOf="@+id/img_find" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -89,5 +95,19 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tools:itemCount="5"
         tools:listitem="@layout/item_topic" />
+
+    <TextView
+        android:id="@+id/txtview_error_not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Không tìm thấy chủ đề cần tìm"
+        android:textColor="#F65656"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

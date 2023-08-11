@@ -74,7 +74,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             }
         })
         o1.start()
-        o1.setDuration(1000)
+        o1.setDuration(500)
     }
     fun frontFlashCard(){
         binding.cardView3.visibility = View.GONE

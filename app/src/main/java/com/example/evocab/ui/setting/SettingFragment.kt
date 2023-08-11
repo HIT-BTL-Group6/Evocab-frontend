@@ -1,17 +1,15 @@
 package com.example.evocab.ui.setting
 
 import android.app.Dialog
-import android.os.Build
+import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.atom.android.lebo.utils.extensions.destroyPassword
+import com.atom.android.lebo.utils.extensions.destroyTokenLogin
+import com.atom.android.lebo.utils.extensions.destroyUsername
 import com.example.evocab.R
-import com.example.evocab.base.BaseViewModel
 import com.example.evocab.databinding.FragmentSettingBinding
 import com.example.evocab.extension.openDlChangeDate
 import com.example.evocab.extension.openDlChangeEmail
@@ -19,17 +17,16 @@ import com.example.evocab.extension.openDlChangePassword
 import com.example.evocab.extension.openDlChangeUser
 import com.example.evocab.model.User
 import com.example.evocab.ui.home.HomeFragment
-import com.example.evocab.ui.home.HomeViewModel
 import com.example.sourcebase.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val TAG = "SettingFragment"
-class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {
+class SettingFragment() : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::inflate) {
 
-    private lateinit var user1: User
     private val contract = registerForActivityResult(ActivityResultContracts.GetContent()) {
         binding.imgAvt.setImageURI(it)
     }
+
     override val viewModel by viewModel<SettingViewModel>()
 
     override fun destroy() {
@@ -55,10 +52,14 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
             dialog?.openDlChangeDate()
         }
         binding.txtLogout.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settingFragment)
+            findNavController().navigate(R.id.action_settingFragment_to_logInFragment)
         }
         binding.btnSetImg.setOnClickListener {
             contract.launch("image/*")
+        }
+        binding.imgBack.setOnClickListener {
+            viewModel.logOut()
+            findNavController().navigate(R.id.action_settingFragment_to_homeFragment)
         }
         binding.btnSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
@@ -74,7 +75,7 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
 
 
     override fun bindData() {
-        user1 = (arguments?.getParcelable(HomeFragment.EXTRAS_USER) as? User)!!
+        val user1 = (arguments?.getParcelable(HomeFragment.EXTRAS_USER) as? User)
         Log.e("SettingFragment", "kiểm tra dữ liệu sau khi lấy: ${user1}", )
         if (user1 != null) {
             binding.apply {

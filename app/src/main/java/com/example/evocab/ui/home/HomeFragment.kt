@@ -32,6 +32,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         const val EXTRAS_USER = "EXTRAS_USER"
     }
     override fun handleEvent() {
+
+        //Log.e(TAG, "handleEvent: user là ${viewModel.getResults.value}", )
         binding.apply {
             btnSettings.setOnClickListener {
                 val bundle = bundleOf(EXTRAS_USER to viewModel.getResults.value)
@@ -50,7 +52,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 findNavController().navigate(R.id.action_homeFragment_to_examFragment)
             }
             flTopic.setOnClickListener {
-
+                findNavController().navigate(R.id.action_homeFragment_to_topicFragment)
             }
             flRemembered.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
