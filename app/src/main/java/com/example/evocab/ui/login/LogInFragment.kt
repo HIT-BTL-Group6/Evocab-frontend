@@ -85,6 +85,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
 
     override fun bindData() {
 
+        Log.e(TAG, "bindData: dfsds", )
     }
 
 
