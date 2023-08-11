@@ -83,10 +83,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBind
 //                txtDate.text =
                 //txtPass.text =
             }
-            viewModel.searchResults.observe(this){
-
-                Log.e(TAG, "bindData: ${it.toString()}", )
-            }
+//            viewModel.searchResults.observe(this){
+//
+//                Log.e(TAG, "bindData: ${it.toString()}", )
+//            }
         }else{
         }
 
