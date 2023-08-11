@@ -16,7 +16,7 @@ import com.example.evocab.data.repository.setting.SettingRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<ISearchRepository> { SearchRepository(get()) }
+    //single<ISearchRepository> { SearchRepository(get()) }
     single<IRegisterRepository> { RegisterRepository(get()) }
     single<ILoginRepository> { LoginRepository(get()) }
     single<IForgotpassRepository> { ForgotpassRepository(get()) }

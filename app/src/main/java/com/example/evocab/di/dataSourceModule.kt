@@ -15,7 +15,7 @@ import com.example.evocab.data.datasource.setting.SettingRemoteDataSource
 import org.koin.dsl.module
 
 val dataSourceModule = module {
-    single<ISearchDataSource.Remote> { SearchRemoteDataSource(get()) }
+    //single<ISearchDataSource.Remote> { SearchRemoteDataSource(get()) }
     single<IRegisterDataSource.Remote> { RegisterRemoteDataSource(get()) }
     single<ILoginDataSource.Remote> { LoginRemoteDataSource(get()) }
     single<IForgotPassDataSource.Remote> { ForgotPassRemoteDataSource(get()) }
