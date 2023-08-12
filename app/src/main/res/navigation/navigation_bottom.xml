@@ -25,7 +25,9 @@
         android:label="ForgotPassFragment" >
         <action
             android:id="@+id/action_forgotPassFragment_to_newPassFragment"
-            app:destination="@id/newPassFragment" />
+            app:destination="@id/newPassFragment"
+            app:popUpTo="@id/forgotPassFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_forgotPassFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
@@ -115,9 +117,7 @@
         <action
             android:id="@+id/action_homeFragment_to_missedFragment"
             app:destination="@id/missedFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment2"
-            app:destination="@id/profileFragment2" />
+
         <action
             android:id="@+id/action_homeFragment_to_practiceFragment"
             app:destination="@id/practiceFragment" />
@@ -134,8 +134,9 @@
             android:id="@+id/action_homeFragment_to_topicFragment"
             app:destination="@id/topicFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
+            android:id="@+id/action_homeFragment_to_profileFragment2"
             app:destination="@id/profileFragment2" />
+
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"

@@ -25,6 +25,7 @@ class ListAdapterTopic(
         BaseViewHolder<DataTopicAPI>(binding) {
         override fun binView(item: DataTopicAPI) {
             super.binView(item)
+            binding.root.setOnClickListener { onClick.invoke(item) }
             binding.apply {
                 txtviewNameTopic.text = item.nameTopic
 //                tvPercent

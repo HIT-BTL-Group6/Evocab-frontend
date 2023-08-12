@@ -2,11 +2,8 @@ package com.example.evocab.data.service
 
 import com.example.evocab.model.*
 import com.example.evocab.utils.constant.ApiConstant
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
+
 // convert giao thuc api -> code
 interface ApiService {
 
@@ -26,16 +23,31 @@ interface ApiService {
         suspend fun forgotpassword(@Body forgotPass: ForgotPassEnity): BaseReponseForgotPass
     }
     interface User{
-
         @GET(ApiConstant.ENDPOINT.USER.GET_USER)
         suspend fun getUserInfor() : BaseReponseUser
         //chưa sửa
         @PATCH(ApiConstant.ENDPOINT.USER.PATCH_USER)
-        suspend fun changUsername(): BaseReponseSetting
+        suspend fun changUsername(@Body user: UserCanChange): BaseReponseSetting
     }
     interface Topic{
         @GET(ApiConstant.ENDPOINT.TOPIC.GET_TOPIC)
         suspend fun getAllTopic(): BaseReponseTopic
-    }
 
+        @GET("${ApiConstant.ENDPOINT.TOPIC.GET_TOPIC}/{idTopic}")
+        suspend fun getAllVocabInTopic(@Path(ApiConstant.FILED.IDTOPIC) idTopic: String): ListWord
+
+        @GET("${ApiConstant.ENDPOINT.TOPIC.GET_VOCAB}/{idWord}")
+        suspend fun get1Vocab(@Path(ApiConstant.FILED.IDWORD) idWord: String): BaseReponseWord
+
+
+        @GET("${ApiConstant.ENDPOINT.TOPIC.GET_VOCAB}/{idWord}")
+        suspend fun getAllVocabLearned(@Path(ApiConstant.FILED.IDWORD) idWord: String): BaseReponseMissed
+
+        @GET("${ApiConstant.ENDPOINT.TOPIC.GET_VOCAB_REMEMBER}/{idUser}")
+        suspend fun getAllVocabRemember(@Path(ApiConstant.FILED.IDUSER) idUser: String): BaseReponseMissed
+
+        //api/v1/user-words/add-word
+        @POST("${ApiConstant.ENDPOINT.TOPIC.POST_WORD}/{idUser}")
+        suspend fun postWord(@Path(ApiConstant.FILED.IDUSER) idUser: String, wordRemember: WordRemember): BaseReponseMissed
+    }
 }

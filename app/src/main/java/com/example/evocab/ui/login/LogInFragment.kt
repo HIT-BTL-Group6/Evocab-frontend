@@ -12,6 +12,7 @@ import com.example.evocab.databinding.FragmentLogInBinding
 import com.example.evocab.model.LoginEnity
 import com.example.evocab.utils.constant.Constant
 import com.example.sourcebase.base.BaseFragment
+import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val TAG="LoginFragment"
@@ -21,6 +22,7 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
     private var isWillRememverLogin: Boolean = false
     var userName1: String = ""
     var password1: String = ""
+    private val sharedPreferences = get<SharedPreferences>()
 
 
     override fun destroy() {
@@ -28,6 +30,9 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
     }
 
     override fun initData() {
+        viewModel.setIdTopic()
+
+
 //        viewModel.apply {
 //            loginState.observe(viewLifecycleOwner) {
 //                context?.showToast(it.toString())
@@ -65,6 +70,7 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
     }
 
     override fun bindData() {
+
         //checkLogin()
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             requireActivity().finishAffinity() // Đóng tất cả các Activity trong ứng dụng
@@ -80,6 +86,7 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
             when (it){
                 Constant.MessageAPI.LOGIN_ERROR
                 ->{
+
                     binding.inputPass.setBackgroundResource(R.drawable.bg_input_error)
                     binding.inputUsername.setBackgroundResource(R.drawable.bg_input_error)
                     binding.passwErrorMess.text = context?.getString(R.string.pass_error_mess)
@@ -104,18 +111,18 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
         }
     }
 
-    fun checkLogin(){
-        userName1 = viewModel.getUsername
-        password1 = viewModel.getPass
-        Log.e(TAG, "checkLogin: username shar ${userName1} ", )
-        Log.e(TAG, "checkLogin: pass shar ${password1} ", )
-        if(userName1 != "" && password1 != ""){
-            val userRequest = LoginEnity(userName1, password1)
-            viewModel.loginByPass(userRequest, isWillRememverLogin)
-            logIn()
-        }
-
-    }
+//    fun checkLogin(){
+//        userName1 = viewModel.getUsername
+//        password1 = viewModel.getPass
+//        Log.e(TAG, "checkLogin: username shar ${userName1} ", )
+//        Log.e(TAG, "checkLogin: pass shar ${password1} ", )
+//        if(userName1 != "" && password1 != ""){
+//            val userRequest = LoginEnity(userName1, password1)
+//            viewModel.loginByPass(userRequest, isWillRememverLogin)
+//            logIn()
+//        }
+//
+//    }
 
 
 

@@ -14,6 +14,9 @@ import com.example.evocab.data.datasource.search.ISearchDataSource
 import com.example.evocab.data.datasource.search.SearchRemoteDataSource
 import com.example.evocab.data.datasource.setting.ISettingDataSource
 import com.example.evocab.data.datasource.setting.SettingRemoteDataSource
+import com.example.evocab.data.datasource.vocab.IVocabDataSource
+import com.example.evocab.data.datasource.vocab.VocabDataSource
+import com.example.evocab.data.datasource.vocab.VocabLocalDataSource
 import org.koin.dsl.module
 
 val dataSourceModule = module {
@@ -23,4 +26,6 @@ val dataSourceModule = module {
     single<IHomeDataSource.Remote> { HomeRemoteDataSource(get()) }
     single<ISettingDataSource.Remote> { SettingRemoteDataSource(get()) }
     single<ITopicDataSource.Remote> { TopicDataSource(get()) }
+    single<IVocabDataSource.Remote> { VocabDataSource(get()) }
+    single<IVocabDataSource.Local> { VocabLocalDataSource(get()) }
 }

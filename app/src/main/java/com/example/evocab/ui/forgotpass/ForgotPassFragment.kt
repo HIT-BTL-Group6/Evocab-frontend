@@ -68,8 +68,10 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
 
     private fun checkOtp(otp: String){
         if(viewModel.otp.value == otp){
+            binding.errorMess.visibility = View.INVISIBLE
             findNavController().navigate((R.id.action_forgotPassFragment_to_newPassFragment))
         }else{
+            binding.errorMess.visibility = View.VISIBLE
             binding.errorMess.text = context?.getString(R.string.VerifiCodeErorrMess)
         }
     }
@@ -97,7 +99,7 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
             override fun onTick(millisUntilFinished: Long) {
                 val minute = millisUntilFinished/60000
                 val second = (millisUntilFinished-minute*60000)/1000
-                binding.timeCountdown.text = "$minute:$second"
+                binding.timeCountdown.text = "Mã otp sẽ thay đổi sau $minute:$second"
             }
             override fun onFinish() {
                 enterEmail()

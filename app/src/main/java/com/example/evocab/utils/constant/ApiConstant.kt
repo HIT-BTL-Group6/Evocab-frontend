@@ -30,11 +30,18 @@ object ApiConstant {
 
         object TOPIC{
             const val GET_TOPIC = "/api/v1/topics"
-
+            const val GET_VOCAB = "/api/v1/words/"
+            const val GET_VOCAB_REMEMBER = "/api/v1/user-words/remeber-word"
+            const val POST_WORD = "/api/v1/user-words/remeber-word"
         }
 
 
 
+    }
+    object FILED{
+        const val IDWORD = "idWord"
+        const val IDTOPIC ="idTopic"
+        const val IDUSER ="idUser"
     }
 
     const val AUTHORIZATION = "Authorization"

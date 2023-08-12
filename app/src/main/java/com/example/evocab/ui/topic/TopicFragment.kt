@@ -1,10 +1,12 @@
 package com.example.evocab.ui.topic
 
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.atom.android.lebo.utils.extensions.saveIdTopic
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentTopicBinding
 import com.example.evocab.extension.hasItem
@@ -13,6 +15,7 @@ import com.example.evocab.model.Practice
 import com.example.evocab.model.Topic
 import com.example.evocab.ui.exam.ListAdapterExam
 import com.example.sourcebase.base.BaseFragment
+import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::inflate) {
@@ -21,6 +24,9 @@ class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::in
     private val topicAdapter by lazy {
         ListAdapterTopic(::onClick)
     }
+
+    private val sharedPreferences = get<SharedPreferences>()
+
     private var list: List<DataTopicAPI>? = null
 
     override val viewModel by viewModel<TopicViewModel>()
@@ -74,8 +80,8 @@ class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::in
         }
     }
     private fun onClick(topic: DataTopicAPI) {
-        Toast.makeText(context, "Item lớn", Toast.LENGTH_SHORT).show()
-        Log.e("chạm", "đã chạm item")
+        sharedPreferences.saveIdTopic(topic.idTopic, topic.nameTopic.toString())
+        Toast.makeText(context, "Đã chọn topic ${topic.nameTopic}", Toast.LENGTH_SHORT).show()
     }
 
 }

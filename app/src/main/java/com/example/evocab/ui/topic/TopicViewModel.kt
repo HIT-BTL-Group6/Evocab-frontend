@@ -17,7 +17,7 @@ class TopicViewModel(private val topicRepo: ITopicRepository):BaseViewModel() {
             request = {
                 topicRepo.getAllTopic()
             },
-            onSuccess = {_response ->
+            onSuccess = { _response ->
                 Log.e("TopicViewModel", "getAllTopic: data ${_response}", )
                 _response.data?.let { _data ->
                     _TopicResults.value = _data

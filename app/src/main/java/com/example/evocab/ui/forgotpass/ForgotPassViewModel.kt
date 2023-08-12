@@ -3,14 +3,9 @@ package com.example.evocab.ui.forgotpass
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.atom.android.lebo.utils.extensions.saveTokenLogin
 import com.example.evocab.base.BaseViewModel
 import com.example.evocab.data.repository.forgotpassword.IForgotpassRepository
-import com.example.evocab.model.DataRegister
 import com.example.evocab.model.ForgotPassEnity
-import org.json.JSONException
-import org.json.JSONObject
-import retrofit2.HttpException
 
 class ForgotPassViewModel(private val forgotpassRepository: IForgotpassRepository):BaseViewModel() {
     private val _otp = MutableLiveData<String>()  //có thể thay đổi dữ liệu

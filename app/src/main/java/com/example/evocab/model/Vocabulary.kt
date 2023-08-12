@@ -2,6 +2,7 @@ package com.example.evocab.model
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
+import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

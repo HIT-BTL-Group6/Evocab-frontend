@@ -28,4 +28,10 @@ data class User(
     @SerializedName("isEmailVerified")
     val isEmailVerified: Boolean?
 ): Parcelable
+data class UserCanChange(
+    @SerializedName("email")
+    val email: String? = null,
+    @SerializedName("username")
+    val username: String? = null,
+)
 

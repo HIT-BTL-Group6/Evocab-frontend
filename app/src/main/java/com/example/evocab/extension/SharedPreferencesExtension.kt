@@ -1,6 +1,7 @@
 package com.atom.android.lebo.utils.extensions
 
 import android.content.SharedPreferences
+import com.example.evocab.model.User
 import com.example.evocab.utils.constant.Constant
 
 fun SharedPreferences.getTokenLogin(): String? {
@@ -16,6 +17,9 @@ fun SharedPreferences.getUSerName(): String? {
 fun SharedPreferences.saveTokenLogin(token: String) {
     this.edit().putString(Constant.SHARED_PREF_TOKEN_LOGIN, token).apply()
 }
+fun SharedPreferences.saveIdUser(IdUser: String) {
+    this.edit().putString(Constant.SHARED_USER_ID, IdUser).apply()
+}
 fun SharedPreferences.saveLogin(pass: String,user: String) {
     this.edit().putString(Constant.SHARED_LOGIN_PASSWORD, pass).apply()
     this.edit().putString(Constant.SHARED_LOGIN_USERNAME, user).apply()
@@ -26,7 +30,22 @@ fun SharedPreferences.destroyPassword(): Boolean {
 fun SharedPreferences.destroyUsername(): Boolean {
     return this.edit().remove(Constant.SHARED_LOGIN_USERNAME).commit()
 }
-
 fun SharedPreferences.destroyTokenLogin(): Boolean {
     return this.edit().remove(Constant.SHARED_PREF_TOKEN_LOGIN).commit()
 }
+
+fun SharedPreferences.saveIdTopic(id: String, nameTopic: String) {
+    this.edit().putString(Constant.SHARED_ID_TOPIC, id).apply()
+    this.edit().putString(Constant.SHARED_NAME_TOPIC, nameTopic).apply()
+}
+fun SharedPreferences.getIdTopic(): String? {
+    return this.getString(Constant.SHARED_ID_TOPIC, Constant.SHARED_ID_TOPIC_DEFAULT_STRING)
+}
+fun SharedPreferences.getNameTopic(): String? {
+    return this.getString(Constant.SHARED_NAME_TOPIC, Constant.SHARED_ID_TOPIC_DEFAULT_STRING)
+}
+fun SharedPreferences.destroyIdTopic(): Boolean {
+    return this.edit().remove(Constant.SHARED_ID_TOPIC).commit()
+}
+
+

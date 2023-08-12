@@ -1,12 +1,17 @@
 package com.example.evocab.ui.exam
 
+import android.app.Dialog
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.evocab.R
 import com.example.evocab.databinding.FragmentExamBinding
+import com.example.evocab.extension.openDlNoted
+import com.example.evocab.extension.openDlReport
 import com.example.evocab.model.Practice
 import com.example.sourcebase.base.BaseFragment
 
@@ -26,7 +31,18 @@ class ExamFragment : BaseFragment<FragmentExamBinding>(FragmentExamBinding::infl
     }
 
     override fun handleEvent() {
-
+        val dialog = context?.let { it1 -> Dialog(it1) }
+        binding.apply {
+            imgClose.setOnClickListener {
+                findNavController().navigate(R.id.action_examFragment_to_homeFragment)
+            }
+            imgEdit.setOnClickListener {
+                dialog?.openDlNoted()
+            }
+            contrainsLReport.setOnClickListener {
+                dialog?.openDlReport()
+            }
+        }
     }
 
     override fun bindData() {

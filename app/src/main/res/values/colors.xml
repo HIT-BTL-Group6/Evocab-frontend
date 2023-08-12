@@ -14,6 +14,7 @@
     <color name="btn_log_sign">#A4F17D</color>
     <color name="txt_blurred">#7f7f7f</color>
     <color name="red">#ff3232</color>
+    <color name="red_bold">#E81616</color>
     <color name="first_color_of_login_screen">#5C0C9A</color>
     <color name="last_color_of_login_screen">#AD89E6F3</color>
     <color name="grey">#E2E2E2</color>

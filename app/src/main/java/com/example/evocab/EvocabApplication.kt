@@ -19,6 +19,7 @@ class EvocabApplication:Application() {
                 repositoryModule,
                 viewModelModule,
                 sharedPreferencesModule,
+                databaseModule
             )
         }
     }
