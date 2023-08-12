@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/btn_close"
+            android:id="@+id/img_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/close"
@@ -34,7 +34,7 @@
             android:textColor="#0C4DF1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_edit"
-            app:layout_constraintStart_toEndOf="@+id/btn_close"
+            app:layout_constraintStart_toEndOf="@+id/img_close"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
 
@@ -57,14 +57,14 @@
         android:text="Xem lại flashcard"
         android:textColor="#0C4DF1"
         android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_report"
+        app:layout_constraintBottom_toBottomOf="@+id/contrainsL_report"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_report" />
+        app:layout_constraintTop_toTopOf="@+id/contrainsL_report" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_report"
+        android:id="@+id/contrainsL_report"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/circle"
@@ -137,7 +137,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_report" />
+        app:layout_constraintTop_toBottomOf="@+id/contrainsL_report" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

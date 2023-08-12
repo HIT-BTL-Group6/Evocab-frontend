@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,18 +36,21 @@
             android:id="@+id/status_topic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:text="Từ mới flash card"
             android:textColor="#E8E8E8"
             android:textSize="13dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/name_topic"
             app:layout_constraintStart_toStartOf="@+id/name_topic"
             app:layout_constraintTop_toBottomOf="@+id/name_topic" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/img_back_to"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/img"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,13 +139,17 @@
             android:id="@+id/vocab_name_meaning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:text="Quả việt quất"
             android:textColor="@color/color_text_input"
             android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/explain_vocab_vienamese"
-            app:layout_constraintEnd_toEndOf="@+id/cardView3"
-            app:layout_constraintStart_toStartOf="@+id/cardView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
         <TextView
@@ -222,8 +229,8 @@
 
         <ImageView
             android:id="@+id/btn_edit"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:src="@drawable/edit"
@@ -259,7 +266,7 @@
             android:layout_marginTop="4dp"
             android:text="1/50"
             android:textColor="@color/color_text_input"
-            android:textSize="12dp"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toStartOf="parent"
@@ -268,18 +275,18 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/remembered"
+        android:id="@+id/img_remembered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/check"
-        app:layout_constraintBottom_toBottomOf="@+id/missed"
+        android:src="@drawable/correct"
+        app:layout_constraintBottom_toBottomOf="@+id/img_missed"
         app:layout_constraintEnd_toEndOf="@+id/flashcard"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/flashcard"
-        app:layout_constraintTop_toTopOf="@+id/missed" />
+        app:layout_constraintTop_toTopOf="@+id/img_missed" />
 
     <ImageView
-        android:id="@+id/missed"
+        android:id="@+id/img_missed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -295,9 +302,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Đã nhớ"
-        app:layout_constraintEnd_toEndOf="@+id/remembered"
-        app:layout_constraintStart_toStartOf="@+id/remembered"
-        app:layout_constraintTop_toBottomOf="@+id/remembered" />
+        app:layout_constraintEnd_toEndOf="@+id/img_remembered"
+        app:layout_constraintStart_toStartOf="@+id/img_remembered"
+        app:layout_constraintTop_toBottomOf="@+id/img_remembered" />
 
     <TextView
         android:id="@+id/textView12"
@@ -305,41 +312,42 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Chưa nhớ"
-        app:layout_constraintEnd_toEndOf="@+id/missed"
-        app:layout_constraintStart_toStartOf="@+id/missed"
-        app:layout_constraintTop_toBottomOf="@+id/missed" />
+        app:layout_constraintEnd_toEndOf="@+id/img_missed"
+        app:layout_constraintStart_toStartOf="@+id/img_missed"
+        app:layout_constraintTop_toBottomOf="@+id/img_missed" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/progressbar"
         android:layout_width="0dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/bg_progressbar1"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/value_of_progressbar">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/progressbar_in"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_progressbar2"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ProgressBar
+            android:id="@+id/progress_bar_loading"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginBottom="14dp"
+            android:max="100"
+            android:progress="0"
+            app:layout_constraintTop_toTopOf="parent"
+            android:progressDrawable="@drawable/custom_progress_drawable"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintWidth_percent="0.7" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/value_of_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="63%"
+        android:text="0%"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/progressbar"
@@ -348,7 +356,7 @@
         app:layout_constraintVertical_bias="0.01999998" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_report"
+        android:id="@+id/contrainsL_report"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/circle"

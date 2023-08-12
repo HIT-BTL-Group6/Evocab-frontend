@@ -3,60 +3,143 @@ package com.example.evocab.ui.flashcard
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.SharedPreferences
+import android.media.MediaPlayer
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.PopupMenu
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
+import com.atom.android.lebo.utils.extensions.getIdTopic
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentFlashCardBinding
-import com.example.evocab.extension.openDlNoted
-import com.example.evocab.extension.openDlReport
+import com.example.evocab.extension.*
+import com.example.evocab.model.Word
 import com.example.sourcebase.base.BaseFragment
+import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
+const val TAG ="FlashCardFragment"
 class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCardBinding::inflate) {
-    override val viewModel: FlashCardViewModel
-        get() = ViewModelProvider(this)[FlashCardViewModel::class.java]
+
+    private val mediaPlayer = MediaPlayer()
+    override val viewModel by viewModel<FlashCardViewModel>()
+    private var _listVocabLocal = MutableLiveData<List<Word>>()
+    private val listVocabLocal: LiveData<List<Word>> get() = _listVocabLocal
+    private var list : List<Word> = mutableListOf()
+    private var idInList: Int = 0
+    private val sharedPreferences = get<SharedPreferences>()
+
 
     override fun destroy() {
 
     }
 
     override fun initData() {
-
+        val idTopic = sharedPreferences.getIdTopic()
+        if (idTopic != null) {
+            viewModel.getAllVocabInTopic(idTopic)
+        }
     }
 
     override fun handleEvent() {
         val dialog = context?.let { it1 -> Dialog(it1) }
-        binding.btnReport.setOnClickListener {
+        binding.contrainsLReport.setOnClickListener {
             dialog?.openDlReport()
         }
         binding.btnMenu.setOnClickListener {
             showPopupMenu(it)
         }
         binding.flashcard.setOnClickListener {
-            FlipCard()
+            flipCard()
         }
         binding.btnEdit.setOnClickListener {
             dialog?.openDlNoted()
         }
         binding.speaker1.setOnClickListener {
-            Toast.makeText(context, "Đã chạm speaker US", Toast.LENGTH_SHORT).show()
+            mediaPlayer.start()
         }
         binding.speaker2.setOnClickListener {
-            Toast.makeText(context, "Đã chạm speaker UK", Toast.LENGTH_SHORT).show()
+            mediaPlayer.start()
+        }
+        binding.imgBackTo.setOnClickListener {
+            findNavController().navigate(R.id.action_flashCardFragment_to_homeFragment)
+        }
+        binding.imgMissed.setOnClickListener {
+            if(idInList < listVocabLocal.value?.size!!){
+                val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
+                viewModel.get1Vocab(idWord)
+                frontFlashCard()
+                pasteWord()
+                idInList++
+            }else{
+
+            }
+
+            //xử lý chuyển sang từ tiếp theo trong listVocabLocal
+        }
+        binding.imgRemembered.setOnClickListener {
+            if(idInList < listVocabLocal.value?.size!!){
+                val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
+                viewModel.get1Vocab(idWord)
+                frontFlashCard()
+                pasteWord()
+                updateLayoutWhenChangeCard()
+                idInList++
+            }else{
+
+            }
+            //xử lý chuyển sang từ tiếp theo trong listVocabLocal
         }
 
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun updateLayoutWhenChangeCard(){
+        listVocabLocal.value?.let {
+            binding.numberCard.text = "${idInList+1}/${it.size}"
+            binding.progressBarLoading.progress = ((idInList+1)*1.0/it.size*100).toInt()
+            binding.valueOfProgressbar.text = "${((idInList+1)*1.0/it.size*100).toInt()}%"
+
+        }?:kotlin.run {
+
+        }
     }
 
     override fun bindData() {
+        updateLayoutWhenChangeCard()
+        getListWord()
+
+        viewModel.listVocab.observe(viewLifecycleOwner){
+            if(listVocabLocal!=null){
+                val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
+                viewModel.get1Vocab(idWord)
+                binding.progressBarLoading.progress = ((idInList+1)*1.0/it.size*100).toInt()
+                binding.valueOfProgressbar.text = "${((idInList+1)*1.0/it.size*100).toInt()}%"
+            }
+        }
+        Log.e(TAG, "bindData: ${viewModel.word.value}", )
         frontFlashCard()
+        pasteWord()
+    }
+
+    private fun getListWord(){
+        viewModel.listVocab.observe(viewLifecycleOwner){
+            if(it!=null){
+                _listVocabLocal.value = it
+                Log.e(TAG, "getListWord thành công: ${it}", )
+            }else{
+                Log.e(TAG, "getListWord lỗi: ${it}", )
+            }
+        }
     }
     private var isFrontVisible = true
-    private fun FlipCard(){
+    private fun flipCard(){
         val o1= ObjectAnimator.ofFloat(binding.flashcard, "scaleX", 1f, 0f)
         val o2= ObjectAnimator.ofFloat(binding.flashcard, "scaleX", 0f, 1f)
         o1.interpolator = DecelerateInterpolator()
@@ -65,7 +148,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             override fun onAnimationEnd(animation: Animator) {
                 super.onAnimationEnd(animation)
                 if (isFrontVisible) {
-                    BackFlashCard()
+                    backFlashCard()
                 } else {
                     frontFlashCard()
                 }
@@ -74,7 +157,27 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             }
         })
         o1.start()
-        o1.setDuration(1000)
+        o1.setDuration(500)
+    }
+    private fun pasteWord(){
+        viewModel.word.observe(viewLifecycleOwner){
+            Log.e(TAG, "pasteWord: ${it}", )
+            if(it!=null){
+                binding.apply {
+                    it.image?.let { it1 -> imgVocabulary.loadImageOnServer(it1) }
+                    it.image?.let { it1 -> imgVocabulary1.loadImageOnServer(it1) }
+                    it.sound?.let { it1 -> mediaPlayer.loadSound(it1) }
+                    vocabName.text = it.word
+                    vocabNameMeaning.text = it.vietnamese
+                    explainVocab.text = it.example
+                    UsPronounce.text = it.pronunciation
+                    UkPronounce.text = it.pronunciation
+                    nameTopic.text = it.nameTopic
+                }
+            }else{
+                Log.e(TAG, "pasteWord: Lỗi từ", )
+            }
+        }
     }
     fun frontFlashCard(){
         binding.cardView3.visibility = View.GONE
@@ -90,7 +193,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         binding.speaker1.visibility = View.VISIBLE
         binding.speaker2.visibility = View.VISIBLE
     }
-    fun BackFlashCard(){
+    fun backFlashCard(){
         binding.cardView3.visibility = View.VISIBLE
         binding.explainVocabVienamese.visibility = View.VISIBLE
         binding.vocabNameMeaning.visibility = View.VISIBLE
@@ -111,11 +214,11 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
 
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
-                R.id.missed -> {
+                R.id.img_missed -> {
                     findNavController().navigate(R.id.action_homeFragment_to_flashCardFragment)
                     true
                 }
-                R.id.remembered -> {
+                R.id.img_remembered -> {
                     // Xử lý khi người dùng chọn Item 2
                     findNavController().navigate(R.id.action_flashCardFragment_to_homeFragment)
                     true

@@ -26,16 +26,14 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
     override fun handleEvent() {
         binding.apply {
             btnSend.setOnClickListener {
-                val _emailOrCode = edtVerifiCode.text.toString()
-                val emailOrCode = ForgotPassEnity(_emailOrCode)
+                val _email = edtEmail.text.toString()
+                val _otp = edtVerifiCode2.text.toString()
+                val emailOrCode = ForgotPassEnity(_email)
                 if(isEnterEmail){
                     viewModel.sendCodeToEmail(emailOrCode)
-                    verifiCode()
-                }else{
-                    if(_emailOrCode == viewModel.otp.value){
-                        findNavController().navigate(R.id.action_forgotPassFragment_to_newPassFragment)
-                    }
 
+                }else{
+                    checkOtp(_otp)
                 }
             }
             txtLoginChangeActi.setOnClickListener {
@@ -50,10 +48,14 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
                 Constant.MessageAPI.ForgotPass.EMAIL_VERIFIED_PASS
                 -> {
                     //xử lý khi email đúng và đã gửi otp
+                    verifiCode()
+                    binding.errorMess.visibility = View.GONE
                     Log.e("EMAIL_VERIFIED_PASS", "handleEvent 2: ${it}",)
+                    Log.e("TAG", "handleEvent: ${viewModel.otp.value}", )
                 }
                 Constant.MessageAPI.ForgotPass.EMAIL_VERIFIED_FAIL -> {
                     //xử lý khi email sai
+                    binding.errorMess.visibility = View.VISIBLE
                     Log.e("EMAIL_VERIFIED_FAIL", "handleEvent 2: ${it}",)
                 }
                 else -> {
@@ -64,6 +66,16 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
 
     }
 
+    private fun checkOtp(otp: String){
+        if(viewModel.otp.value == otp){
+            binding.errorMess.visibility = View.INVISIBLE
+            findNavController().navigate((R.id.action_forgotPassFragment_to_newPassFragment))
+        }else{
+            binding.errorMess.visibility = View.VISIBLE
+            binding.errorMess.text = context?.getString(R.string.VerifiCodeErorrMess)
+        }
+    }
+
     override fun bindData() {
         enterEmail()
     }
@@ -71,7 +83,7 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
     fun enterEmail(){
         binding.errorMess.visibility = View.GONE
         binding.timeCountdown.visibility = View.GONE
-        binding.inputVerifiCode.visibility = View.GONE
+        binding.inputVerifiCode1.visibility = View.GONE
         binding.txtRequest.setText(R.string.enterEmail)
         isEnterEmail = true
     }
@@ -79,7 +91,7 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
     fun verifiCode(){
         binding.errorMess.visibility = View.GONE
         binding.timeCountdown.visibility = View.VISIBLE
-        binding.inputVerifiCode.visibility = View.VISIBLE
+        binding.inputVerifiCode1.visibility = View.VISIBLE
         binding.txtRequest.setText(R.string.enterVerifiCode)
         isEnterEmail = false
         object: CountDownTimer(60000, 1000){
@@ -87,7 +99,7 @@ class ForgotPassFragment : BaseFragment<FragmentForgotPassBinding>(FragmentForgo
             override fun onTick(millisUntilFinished: Long) {
                 val minute = millisUntilFinished/60000
                 val second = (millisUntilFinished-minute*60000)/1000
-                binding.timeCountdown.text = "$minute:$second"
+                binding.timeCountdown.text = "Mã otp sẽ thay đổi sau $minute:$second"
             }
             override fun onFinish() {
                 enterEmail()

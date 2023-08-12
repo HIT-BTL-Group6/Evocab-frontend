@@ -16,6 +16,17 @@ object Constant {
             const val GET_USER_INFRO_BAD = "invalid token"
         }
     }
+
+    const val SHARED_LOGIN_PASSWORD ="SHARED_LOGIN_PASSWORD"
+    const val SHARED_LOGIN_USERNAME ="SHARED_LOGIN_USERNAME"
+    const val SHARED_LOGIN_DEFAULT_STRING = ""
+
+    const val SHARED_ID_TOPIC ="SHARED_LOGIN_PASSWORD"
+    const val SHARED_NAME_TOPIC ="SHARED_NAME_TOPIC"
+    const val SHARED_ID_TOPIC_DEFAULT_STRING = ""
+
+    const val SHARED_USER_ID = "SHARED_USER_ID"
+
     const val SHARED_PREF_ROOT = PROJECT_NAME + "SHARED_PREF"
     const val SHARED_PREF_DEFAULT_STRING = ""
     const val SHARED_PREF_TOKEN_LOGIN = PROJECT_NAME + "TOKEN_LOGIN"

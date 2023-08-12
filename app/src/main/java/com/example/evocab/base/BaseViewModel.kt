@@ -68,7 +68,6 @@ open class BaseViewModel: ViewModel() {
                 _messageError.value = JSONObject(responseBody).optString("message")
                 Log.e("TAG", "onErrorProcess: ${messageError.value}", )
             } catch (e: JSONException) {
-                _messageError.value = JSONObject(responseBody).optString("message")
                 Log.e("TAG", "onErrorProcess: 2 ${e}", )
                 e.printStackTrace()
             }

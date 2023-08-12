@@ -30,6 +30,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             findNavController().navigate(R.id.action_splashFragment_to_logInFragment)
         },2000 )
         binding.lottie.animate().setDuration(2000).setStartDelay(0)
+
     }
 
 

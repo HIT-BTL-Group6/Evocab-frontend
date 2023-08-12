@@ -9,7 +9,7 @@
         android:title="Chưa nhớ"
         />
     <item
-        android:id="@+id/remembered"
+        android:id="@+id/img_remembered"
         android:title="Đã nhớ"
         />
 </menu>

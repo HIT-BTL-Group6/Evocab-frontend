@@ -1,15 +1,17 @@
 package com.example.evocab.ui.main
 
+import android.os.Handler
+import android.os.Looper
 import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
-
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.evocab.R
 import com.example.evocab.databinding.ActivityMainBinding
 import com.example.evocab.model.User
 import com.example.sourcebase.base.BaseActivity
+
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -31,19 +33,27 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> setNavigationVisible(true)
-                R.id.flashCardFragment ->setNavigationVisible(true)
-                R.id.profileFragment ->setNavigationVisible(true)
-                R.id.settingFragment ->setNavigationVisible(true)
+                R.id.flashCardFragment -> setNavigationVisible(true)
+                R.id.profileFragment2 -> setNavigationVisible(true)
+                R.id.settingFragment -> setNavigationVisible()
                 R.id.classroomFragment -> setNavigationVisible(true)
-                R.id.writeMeaningFragment -> setNavigationVisible(true)
+                R.id.examFragment -> setNavigationVisible()
 
-                else -> setNavigationVisible()
+                else -> {
+                    setNavigationVisible()
+                }
             }
         }
     }
 
     private fun setNavigationVisible(isVisible: Boolean = false) {
-        binding.navView.isVisible = isVisible
+        try {
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.navView.isVisible = isVisible
+            },500)
+        }catch (e: Exception){
+            binding.navView.isVisible = isVisible
+        }
     }
 
 }

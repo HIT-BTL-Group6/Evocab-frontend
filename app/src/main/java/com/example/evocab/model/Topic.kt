@@ -2,13 +2,15 @@ package com.example.evocab.model
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Topic(
     val id: Int,
     val name: String?,
-    val img: String?
+    val img: String?,
+
 ): Parcelable {
     companion object {
         val differUtil = object : DiffUtil.ItemCallback<Topic>(){

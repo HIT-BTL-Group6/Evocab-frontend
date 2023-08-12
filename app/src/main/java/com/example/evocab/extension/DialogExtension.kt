@@ -16,6 +16,7 @@ import com.example.evocab.databinding.DlChangeUserBinding
 import com.example.evocab.databinding.DlLoadingBinding
 import com.example.evocab.databinding.DlNotedBinding
 import com.example.evocab.databinding.DlReportBinding
+import com.example.evocab.databinding.DlSuccessfulTopicBinding
 import java.util.Calendar
 
 fun Dialog.start(stopFlag: Boolean = false) {
@@ -33,8 +34,8 @@ fun Dialog.start(stopFlag: Boolean = false) {
             gravity = Gravity.CENTER
         }
     }
-    setCancelable(stopFlag)
     show()
+    setCancelable(stopFlag)
 }
 fun Dialog.openDlChangeUser(stopFlag: Boolean = false) {
     val marginY = -100
@@ -85,6 +86,34 @@ fun Dialog.openDlChangeEmail(stopFlag: Boolean = false) {
         this.dismiss()
     }
     binding.btnCencal.setOnClickListener {
+        this.dismiss()
+    }
+    setCancelable(stopFlag)
+    show()
+}
+
+fun Dialog.openDlCongrate(stopFlag: Boolean = false) {
+    val marginY = -100
+    val binding = DlSuccessfulTopicBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+    window?.apply {
+        setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        attributes.apply {
+            y = marginY
+            gravity = Gravity.CENTER
+        }
+    }
+    binding.txtvCongratNameTopic.setOnClickListener {
+        val dialog = context?.let { it1 -> Dialog(it1) }
+        dialog?.openDlOk(true)
+        this.dismiss()
+    }
+    binding.txtvChangeActiToHome.setOnClickListener {
+
         this.dismiss()
     }
     setCancelable(stopFlag)
