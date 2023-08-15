@@ -247,7 +247,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
-                        android:text="New\nflashcard"
+                        android:text="Study\nflashcard"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -360,12 +360,14 @@
 
             <FrameLayout
                 android:id="@+id/fl_practice"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_home_element_light_purple"
                 app:layout_constraintEnd_toEndOf="@id/fl_test"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/fl_remembered"
                 app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView

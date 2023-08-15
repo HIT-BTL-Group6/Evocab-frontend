@@ -18,6 +18,7 @@ class ListAdapterVocabMissed(private val onClick: (Vocabulary) -> Unit) :
     }
     inner class ViewHolder(val binding: ItemVovabularyBinding) :
         BaseViewHolder<Vocabulary>(binding) {
+
         override fun binView(item: Vocabulary) {
             super.binView(item)
             binding.apply {

@@ -1,11 +1,13 @@
 package com.example.sourcebase.base
 
+import android.content.SharedPreferences
 import android.view.View
 import androidx.recyclerview.widget.*
 import com.example.evocab.base.BaseViewHolder
 import com.example.evocab.model.Vocabulary
-import java.util.concurrent.Executors
+import org.koin.android.ext.android.get
 
+import java.util.concurrent.Executors
 
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCallback<T>) :
     ListAdapter<T, VH>(

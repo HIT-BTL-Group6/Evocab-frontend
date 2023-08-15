@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseViewHolder<T>(
-    binding: ViewBinding,
+    binding: ViewBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var item: T? = null

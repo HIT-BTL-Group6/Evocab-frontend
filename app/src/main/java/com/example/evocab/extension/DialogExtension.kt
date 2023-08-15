@@ -6,8 +6,10 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.Gravity
 import android.view.WindowManager
+import com.example.evocab.R
 import com.example.evocab.databinding.DlAnimationOkBinding
 import com.example.evocab.databinding.DlChangeDateBinding
 import com.example.evocab.databinding.DlChangeEmailBinding
@@ -16,7 +18,9 @@ import com.example.evocab.databinding.DlChangeUserBinding
 import com.example.evocab.databinding.DlLoadingBinding
 import com.example.evocab.databinding.DlNotedBinding
 import com.example.evocab.databinding.DlReportBinding
+import com.example.evocab.databinding.DlShowImgBinding
 import com.example.evocab.databinding.DlSuccessfulTopicBinding
+import com.example.evocab.databinding.DlVerifyStartTestBinding
 import java.util.Calendar
 
 fun Dialog.start(stopFlag: Boolean = false) {
@@ -37,7 +41,28 @@ fun Dialog.start(stopFlag: Boolean = false) {
     show()
     setCancelable(stopFlag)
 }
-fun Dialog.openDlChangeUser(stopFlag: Boolean = false) {
+fun Dialog.opDlVerifyPractice(stopFlag: Boolean = false) {
+    val marginY = -170
+    val binding = DlVerifyStartTestBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+    window?.apply {
+        setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        attributes.apply {
+            y = marginY
+            gravity = Gravity.CENTER
+        }
+    }
+    binding.txtOk.setOnClickListener {
+        this.dismiss()
+    }
+    show()
+    setCancelable(stopFlag)
+}
+fun Dialog.openDlChangeUser(stopFlag: Boolean = false, nameUser: String,callback: (String?) -> Unit) {
     val marginY = -100
     val binding = DlChangeUserBinding.inflate(layoutInflater)
     setContentView(binding.root)
@@ -52,20 +77,28 @@ fun Dialog.openDlChangeUser(stopFlag: Boolean = false) {
             gravity = Gravity.CENTER
         }
     }
+    binding.txtOldUser.text = nameUser
     binding.btnOk.setOnClickListener {
         val dialog = context?.let { it1 -> Dialog(it1) }
-        dialog?.openDlOk(true)
-        this.dismiss()
-
+        val usernameRegex = Regex("^[a-zA-Z0-9._-]{3,}$")
+        val txt = binding.edtNewUser.text?.toString() ?: ""
+        if (txt.matches(usernameRegex)) {
+            callback(txt)
+            dialog?.openDlOk(true)
+            this.dismiss()
+        } else {
+            binding.edtNewUser.error = "Yêu cầu nhập đúng định dạng"
+        }
     }
     binding.btnCencal.setOnClickListener {
         this.dismiss()
     }
     setCancelable(stopFlag)
     show()
+
 }
 
-fun Dialog.openDlChangeEmail(stopFlag: Boolean = false) {
+fun Dialog.openDlChangeEmail(stopFlag: Boolean = false, nameUser: String,callback: (String?) -> Unit) {
     val marginY = -100
     val binding = DlChangeEmailBinding.inflate(layoutInflater)
     setContentView(binding.root)
@@ -80,10 +113,18 @@ fun Dialog.openDlChangeEmail(stopFlag: Boolean = false) {
             gravity = Gravity.CENTER
         }
     }
+    binding.edtOldUser.text = nameUser
     binding.btnOk.setOnClickListener {
         val dialog = context?.let { it1 -> Dialog(it1) }
-        dialog?.openDlOk(true)
-        this.dismiss()
+        val usernameRegex = Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+        val txt = binding.edtNewUser.text?.toString() ?: ""
+        if (txt.matches(usernameRegex)) {
+            callback(txt)
+            dialog?.openDlOk(true)
+            this.dismiss()
+        } else {
+            binding.edtNewUser.error = "Yêu cầu nhập đúng định dạng"
+        }
     }
     binding.btnCencal.setOnClickListener {
         this.dismiss()
@@ -92,7 +133,7 @@ fun Dialog.openDlChangeEmail(stopFlag: Boolean = false) {
     show()
 }
 
-fun Dialog.openDlCongrate(stopFlag: Boolean = false) {
+fun Dialog.openDlCongrate(stopFlag: Boolean = false, nameTopic: String) {
     val marginY = -100
     val binding = DlSuccessfulTopicBinding.inflate(layoutInflater)
     setContentView(binding.root)
@@ -107,13 +148,8 @@ fun Dialog.openDlCongrate(stopFlag: Boolean = false) {
             gravity = Gravity.CENTER
         }
     }
-    binding.txtvCongratNameTopic.setOnClickListener {
-        val dialog = context?.let { it1 -> Dialog(it1) }
-        dialog?.openDlOk(true)
-        this.dismiss()
-    }
+    binding.txtvCongratNameTopic.text = "Bạn đã hoàn thành topic ${nameTopic}"
     binding.txtvChangeActiToHome.setOnClickListener {
-
         this.dismiss()
     }
     setCancelable(stopFlag)
@@ -203,6 +239,26 @@ fun Dialog.openDlOk(stopFlag: Boolean = false) {
     },1700 )
     binding.lottie.animate().setDuration(1700).setStartDelay(0)
 
+    setCancelable(stopFlag)
+    show()
+}
+fun Dialog.openShowImg(stopFlag: Boolean = false) {
+    val binding = DlShowImgBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+    window?.apply {
+        setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        attributes.apply {
+            gravity = Gravity.CENTER
+        }
+    }
+    binding.imgUser.setImageResource(R.drawable.h1_1048)
+    binding.btnOk.setOnClickListener {
+        this.dismiss()
+    }
     setCancelable(stopFlag)
     show()
 }

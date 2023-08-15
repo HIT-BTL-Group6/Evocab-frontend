@@ -4,12 +4,14 @@ import android.util.Log
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentMissedBinding
 import com.example.evocab.model.DataTopicAPI
 import com.example.evocab.model.Vocabulary
+import com.example.evocab.ui.classroom.ClassroomViewModel
 import com.example.sourcebase.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,7 +20,8 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
         ListAdapterVocabMissed(::onClick)
     }
     private var list: List<DataTopicAPI>? = null
-    override val viewModel by viewModel<MissedViewModel>()
+    override val viewModel : MissedViewModel
+        get() = ViewModelProvider(this)[MissedViewModel::class.java]
 
     override fun destroy() {
 
@@ -35,17 +38,20 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
     }
 
     override fun bindData() {
-        viewModel.MissedResults.observe(viewLifecycleOwner){
-            Log.e("TopicFragment", "bindData: dữ liệu lấy liên tục: ${it} ", )
-            if(it!=null){
-                //list = it
-                binding.missedAdapter.adapter = vocabularyAdapter
-                binding.missedAdapter.layoutManager = LinearLayoutManager(context)
-                //vocabularyAdapter.submitList(it.hasItem())
-                Log.e("TopicFragment", "bindData: dữ liệu sau khi lấy: ${viewModel.MissedResults.value} ", )
-            }
+        binding.btnMenu.setOnClickListener {
+            showPopupMenu(it)
         }
-        //mẫu
+//        viewModel.MissedResults.observe(viewLifecycleOwner){
+//            Log.e("TopicFragment", "bindData: dữ liệu lấy liên tục: ${it} ", )
+//            if(it!=null){
+//                //list = it
+//                binding.missedAdapter.adapter = vocabularyAdapter
+//                binding.missedAdapter.layoutManager = LinearLayoutManager(context)
+//                //vocabularyAdapter.submitList(it.hasItem())
+//                Log.e("TopicFragment", "bindData: dữ liệu sau khi lấy: ${viewModel.MissedResults.value} ", )
+//            }
+//        }
+//        //mẫu
         val v1:Vocabulary = Vocabulary("1", "mother", "sdsdfs", "Fsfsd", "SDfsd", false, "dfsf")
         val v2:Vocabulary = Vocabulary("2", "father", "sdsdfs", "Fsfsd", "SDfsd", false, "dfsf")
         val v3:Vocabulary = Vocabulary("3", "sister", "sdsdfs", "Fsfsd", "SDfsd", false, "dfsf")
@@ -69,14 +75,17 @@ class MissedFragment : BaseFragment<FragmentMissedBinding>(FragmentMissedBinding
         popupMenu.setOnMenuItemClickListener {it->
             when (it.itemId) {
                 R.id.missedFragment -> {
-                    findNavController().navigate(R.id.action_homeFragment_to_missedFragment)
+                    binding.statusTopic.text = "Chưa nhớ"
+
                     true
                 }
                 R.id.img_remembered -> {
+                    binding.statusTopic.text = "Đã nhớ"
                     // Xử lý khi người dùng chọn Item 2
                     true
                 }
                 R.id.flashCardFragment-> {
+                    binding.statusTopic.text = "Chưa học"
 //                     Xử lý khi người dùng chọn Item 3
 //                    findNavController().navigate(R.id.mis)
                     true

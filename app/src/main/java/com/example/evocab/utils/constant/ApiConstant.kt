@@ -26,6 +26,7 @@ object ApiConstant {
 
             //chưa sửa
             const val PATCH_USER ="$API_V1_AUTH/me"
+            const val PATCH_USER_SETTING ="/api/v1/users/"
         }
 
         object TOPIC{

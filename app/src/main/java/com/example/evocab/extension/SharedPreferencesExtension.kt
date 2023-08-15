@@ -47,5 +47,11 @@ fun SharedPreferences.getNameTopic(): String? {
 fun SharedPreferences.destroyIdTopic(): Boolean {
     return this.edit().remove(Constant.SHARED_ID_TOPIC).commit()
 }
+fun SharedPreferences.saveStatusTopic(status: String, NameTopic: String) {
+    this.edit().putString(Constant.SHARED_STATUS+NameTopic, status).apply()
+}
+fun SharedPreferences.getStatus(NameTopic: String): String? {
+    return this.getString(Constant.SHARED_LOGIN_USERNAME+NameTopic, Constant.SHARED_LOGIN_DEFAULT_STRING1)
+}
 
 

@@ -5,5 +5,5 @@ import com.example.evocab.model.BaseReponseSetting
 import com.example.evocab.model.UserCanChange
 
 interface ISettingRepository {
-    suspend fun changeUsername(userCanChange: UserCanChange): DataResult<BaseReponseSetting>
+    suspend fun changeUsername(idUser: String, userCanChange: UserCanChange): DataResult<BaseReponseSetting>
 }

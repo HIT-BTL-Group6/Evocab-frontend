@@ -10,9 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentExamBinding
+import com.example.evocab.extension.opDlVerifyPractice
 import com.example.evocab.extension.openDlNoted
 import com.example.evocab.extension.openDlReport
 import com.example.evocab.model.Practice
+import com.example.evocab.ui.practice.ChooseAnswerFragment
 import com.example.sourcebase.base.BaseFragment
 
 class ExamFragment : BaseFragment<FragmentExamBinding>(FragmentExamBinding::inflate) {
@@ -46,6 +48,10 @@ class ExamFragment : BaseFragment<FragmentExamBinding>(FragmentExamBinding::infl
     }
 
     override fun bindData() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.practice_screen_change, ChooseAnswerFragment()).commit()
+        val dialog = context?.let { it1 -> Dialog(it1) }
+        dialog?.opDlVerifyPractice()
         binding.btnFinishExam.visibility = View.GONE
         val o1 = Practice("1")
         val o2 = Practice("2")

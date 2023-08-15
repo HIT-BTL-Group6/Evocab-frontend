@@ -276,6 +276,8 @@
 
     <ImageView
         android:id="@+id/img_remembered"
+        android:scaleY="1.3"
+        android:scaleX="1.3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/correct"
@@ -287,6 +289,8 @@
 
     <ImageView
         android:id="@+id/img_missed"
+        android:scaleY="1.3"
+        android:scaleX="1.3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -301,6 +305,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:text="Đã nhớ"
         app:layout_constraintEnd_toEndOf="@+id/img_remembered"
         app:layout_constraintStart_toStartOf="@+id/img_remembered"
@@ -311,6 +316,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:text="Chưa nhớ"
         app:layout_constraintEnd_toEndOf="@+id/img_missed"
         app:layout_constraintStart_toStartOf="@+id/img_missed"

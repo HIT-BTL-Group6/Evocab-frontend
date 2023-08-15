@@ -97,7 +97,6 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
                 Constant.MessageAPI.LOGIN_SUCCESSFUL -> {
                     binding.passwErrorMess.text = ""
                     binding.usernameErrorMess.text = ""
-                    Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
                     if(userName1 == ""){
                         findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                     }else{

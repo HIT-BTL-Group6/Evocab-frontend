@@ -26,8 +26,8 @@ interface ApiService {
         @GET(ApiConstant.ENDPOINT.USER.GET_USER)
         suspend fun getUserInfor() : BaseReponseUser
         //chưa sửa
-        @PATCH(ApiConstant.ENDPOINT.USER.PATCH_USER)
-        suspend fun changUsername(@Body user: UserCanChange): BaseReponseSetting
+        @PATCH("${ApiConstant.ENDPOINT.USER.PATCH_USER_SETTING}/{idUser}")
+        suspend fun changUsername(@Path(ApiConstant.FILED.IDUSER) idUser: String, @Body user: UserCanChange): BaseReponseSetting
     }
     interface Topic{
         @GET(ApiConstant.ENDPOINT.TOPIC.GET_TOPIC)

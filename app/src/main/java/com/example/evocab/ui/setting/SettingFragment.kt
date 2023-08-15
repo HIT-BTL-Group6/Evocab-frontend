@@ -16,6 +16,7 @@ import com.example.evocab.extension.openDlChangeEmail
 import com.example.evocab.extension.openDlChangePassword
 import com.example.evocab.extension.openDlChangeUser
 import com.example.evocab.model.User
+import com.example.evocab.model.UserCanChange
 import com.example.evocab.ui.home.HomeFragment
 import com.example.sourcebase.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,16 +35,35 @@ class SettingFragment() : BaseFragment<FragmentSettingBinding>(FragmentSettingBi
     }
 
     override fun initData() {
-
+        viewModel.getUserForSetting()
+        Log.e(TAG, "initData: khởi tạo 1", )
     }
 
     override fun handleEvent() {
+        //var nameUser= (arguments?.getParcelable(HomeFragment.EXTRAS_USER) as? User)
+
         val dialog = context?.let { it1 -> Dialog(it1) }
         binding.changeUser.setOnClickListener {
-            dialog?.openDlChangeUser()
+            var nameUser= (arguments?.getParcelable(HomeFragment.EXTRAS_USER) as? User)
+            dialog?.openDlChangeUser(false, binding.txtUser.text.toString()){ name ->
+                binding.txtUser.text = name
+                val userChange = UserCanChange(null, name.toString())
+                if (nameUser != null) {
+                    nameUser.id?.let { it1 -> viewModel.changeUserFor(it1, userChange) }
+                }
+
+            }
+
         }
         binding.changeEmail.setOnClickListener {
-            dialog?.openDlChangeEmail()
+            var nameUser= (arguments?.getParcelable(HomeFragment.EXTRAS_USER) as? User)
+            dialog?.openDlChangeEmail(false, binding.txtEmail.text.toString()){ name ->
+                binding.txtEmail.text = name
+                val userChange = UserCanChange(name.toString(), null)
+                if (nameUser != null) {
+                    nameUser.id?.let { it1 -> viewModel.changeUserFor(it1, userChange) }
+                }
+            }
         }
         binding.changePass.setOnClickListener {
             dialog?.openDlChangePassword()
@@ -84,13 +104,7 @@ class SettingFragment() : BaseFragment<FragmentSettingBinding>(FragmentSettingBi
 //                txtDate.text =
                 //txtPass.text =
             }
-//            viewModel.searchResults.observe(this){
-//
-//                Log.e(TAG, "bindData: ${it.toString()}", )
-//            }
-        }else{
         }
-
     }
 
 

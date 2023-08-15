@@ -15,7 +15,8 @@ data class DataTopicAPI(
     @SerializedName("id")
     val idTopic: String,
     @SerializedName("words")
-    val listIdWord: List<String>?
+    val listIdWord: List<String>?,
+    val status: String?= null
 ) : Parcelable{
     companion object {
         val differUtil = object : DiffUtil.ItemCallback<DataTopicAPI>(){
