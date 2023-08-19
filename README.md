@@ -1,3 +1,1 @@
-# Evocab-frontend
-The Frontend of app use Kotlin, Java 
-This is our project
+Evocab - ứng dụng học tiếng anh bằng flashcard
