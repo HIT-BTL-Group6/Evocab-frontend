@@ -16,8 +16,8 @@ class ListAdapterExam(private val onClick: (Practice) -> Unit):
     }
     inner class ViewHolder(val binding: ItemQuesGridBinding) :
         BaseViewHolder<Practice>(binding) {
-        override fun binView(item: Practice) {
-            super.binView(item)
+        override fun binView(item: Practice, isItemSelected: Boolean) {
+            super.binView(item,isItemSelected)
             binding.apply {
                 number.text = item.id
             }

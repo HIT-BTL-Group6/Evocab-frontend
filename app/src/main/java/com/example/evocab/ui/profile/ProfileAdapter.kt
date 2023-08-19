@@ -24,8 +24,8 @@ class ProfileAdapter(
 
     inner class ViewHolder(val binding: ItemListFriendBinding) :
         BaseViewHolder<Friend>(binding) {
-        override fun binView(item: Friend) {
-            super.binView(item)
+        override fun binView(item: Friend, isItemSelected: Boolean) {
+            super.binView(item, isItemSelected)
             binding.apply {
                 textView5.text = item.name
                 imgAvtProfile.loadImage(Uri.parse(item.img_avt))

@@ -9,7 +9,7 @@ abstract class BaseViewHolder<T>(
 
     private var item: T? = null
 
-    open fun binView(item: T) {
+    open fun binView(item: T,isItemSelected: Boolean) {
         this.item = item
     }
 }

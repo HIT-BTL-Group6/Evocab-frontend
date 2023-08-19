@@ -17,12 +17,11 @@ fun SharedPreferences.getUSerName(): String? {
 fun SharedPreferences.saveTokenLogin(token: String) {
     this.edit().putString(Constant.SHARED_PREF_TOKEN_LOGIN, token).apply()
 }
-fun SharedPreferences.saveIdUser(IdUser: String) {
-    this.edit().putString(Constant.SHARED_USER_ID, IdUser).apply()
-}
+
 fun SharedPreferences.saveLogin(pass: String,user: String) {
     this.edit().putString(Constant.SHARED_LOGIN_PASSWORD, pass).apply()
     this.edit().putString(Constant.SHARED_LOGIN_USERNAME, user).apply()
+
 }
 fun SharedPreferences.destroyPassword(): Boolean {
     return this.edit().remove(Constant.SHARED_LOGIN_PASSWORD).commit()
@@ -52,6 +51,14 @@ fun SharedPreferences.saveStatusTopic(status: String, NameTopic: String) {
 }
 fun SharedPreferences.getStatus(NameTopic: String): String? {
     return this.getString(Constant.SHARED_LOGIN_USERNAME+NameTopic, Constant.SHARED_LOGIN_DEFAULT_STRING1)
+}
+
+//idUser
+fun SharedPreferences.saveIdUser(IdUser: String) {
+    this.edit().putString(Constant.SHARED_USER_ID, IdUser).apply()
+}
+fun SharedPreferences.getIdUser(): String? {
+    return this.getString(Constant.SHARED_USER_ID, Constant.SHARED_ID_TOPIC_DEFAULT_STRING)
 }
 
 

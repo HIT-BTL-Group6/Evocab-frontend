@@ -28,7 +28,7 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(diffUtil: DiffUtil.ItemCal
 
     //Ràng buộc dữ liệu tại vị trí position với viewHolder "holder"
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.binView(getItem(position))
+        holder.binView(getItem(position), true)
     }
 
     //Bật chế độ hiểu thị layoutNoData khi danh sách rỗng

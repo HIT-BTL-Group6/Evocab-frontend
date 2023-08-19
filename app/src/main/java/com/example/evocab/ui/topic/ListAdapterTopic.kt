@@ -1,9 +1,12 @@
 package com.example.evocab.ui.topic
 
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import com.example.evocab.R
 import com.example.evocab.base.BaseViewHolder
 import com.example.evocab.databinding.ItemTopicBinding
 import com.example.evocab.extension.loadImage
@@ -23,14 +26,27 @@ class ListAdapterTopic(
 
     inner class ViewHolder(val binding: ItemTopicBinding) :
         BaseViewHolder<DataTopicAPI>(binding) {
-        override fun binView(item: DataTopicAPI) {
-            super.binView(item)
-            binding.root.setOnClickListener { onClick.invoke(item) }
+        private var isItemSelected = false
+        override fun binView(item: DataTopicAPI, isItemSelected: Boolean) {
+
+            binding.root.setOnClickListener { onClick.invoke(item)
+                this.isItemSelected = isItemSelected
+                updateSelectionState()
+            }
+            updateSelectionState()
             binding.apply {
                 txtviewNameTopic.text = item.nameTopic
-                //progressIn.progress = sharedPreferences.getStatus(item.na)
+
             }
         }
+        private fun updateSelectionState() {
+            if (isItemSelected) {
+                binding.root.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.selected_item_background))
+            } else {
+                binding.root.setBackgroundColor(Color.TRANSPARENT) // hoặc màu nền mặc định
+            }
+        }
+
     }
 }
 

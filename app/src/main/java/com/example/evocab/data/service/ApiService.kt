@@ -49,5 +49,8 @@ interface ApiService {
         //api/v1/user-words/add-word
         @POST("${ApiConstant.ENDPOINT.TOPIC.POST_WORD}/{idUser}")
         suspend fun postWord(@Path(ApiConstant.FILED.IDUSER) idUser: String, wordRemember: WordRemember): BaseReponseMissed
+
+        @PUT("${ApiConstant.ENDPOINT.TOPIC.PUT_WORD_CARD}/{idUser}")
+        suspend fun chooseMissedOrRemember(@Path(ApiConstant.FILED.IDUSER) idUser: String, wordRequest: WordRemember): PutWord
     }
 }

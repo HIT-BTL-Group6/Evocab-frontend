@@ -19,8 +19,8 @@ class ListAdapterVocabMissed(private val onClick: (Vocabulary) -> Unit) :
     inner class ViewHolder(val binding: ItemVovabularyBinding) :
         BaseViewHolder<Vocabulary>(binding) {
 
-        override fun binView(item: Vocabulary) {
-            super.binView(item)
+        override fun binView(item: Vocabulary, isItemSelected: Boolean) {
+            super.binView(item, isItemSelected)
             binding.apply {
                 idItem.text = item.id+"/"
                 wordEnglish.text = item.wordEnglish

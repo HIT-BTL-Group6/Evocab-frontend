@@ -16,33 +16,39 @@
 
         <ImageView
             android:id="@+id/img_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+
+            android:padding="8dp"
             android:src="@drawable/close"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_type_question"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.47000003" />
+            app:layout_constraintTop_toTopOf="@+id/txt_type_question" />
 
         <TextView
             android:id="@+id/txt_type_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:text="Câu1: Hoàn thiện từ tiếng anh sau"
+            android:textAlignment="center"
             android:textColor="#0C4DF1"
+            android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_edit"
             app:layout_constraintStart_toEndOf="@+id/img_close"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.393" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/img_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:padding="8dp"
             android:src="@drawable/edit"
             app:layout_constraintBottom_toBottomOf="@+id/txt_type_question"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Xem lại flashcard"
+        android:padding="10dp"
         android:textColor="#0C4DF1"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/contrainsL_report"
@@ -67,6 +74,7 @@
         android:id="@+id/contrainsL_report"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:padding="5dp"
         android:background="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +86,7 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
+
             android:src="@drawable/messenger"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

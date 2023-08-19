@@ -33,10 +33,11 @@ data class Word(
 )
 
 data class WordRemember(
-    @SerializedName("sound")
-    val idUser: String?,
-    val idWord: String?,
-    val isRemember: Boolean?,
+    @SerializedName("wordId")
+    val wordId: String,
+    @SerializedName("isRemember")
+    val isRemember: Boolean,
+    @SerializedName("note")
     val note: String?
 )
 
