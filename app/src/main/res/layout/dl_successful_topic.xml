@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
-            android:text="Bạn đã hoàn thành topic gia đình"
+            android:text="Bạn đã hoàn thành topic"
             android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="normal"
@@ -66,37 +66,24 @@
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-        <TextView
+        <Button
             android:id="@+id/txtv_change_acti_toHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
-            android:text="Quay về trang chủ"
-            android:textColor="#0014CD"
-            android:textSize="16dp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.888"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_congrat_name_topic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="Quay về trang chủ"
-            android:textColor="#0014CD"
+            android:layout_marginBottom="16dp"
+            android:text="Hoàn thành"
+            android:background="#92FF32"
+            android:paddingHorizontal="5dp"
+            android:textColor="#020202"
             android:textSize="16dp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txtv_change_acti_toHome"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_change_acti_toHome" />
+            app:layout_constraintTop_toBottomOf="@+id/txtv_congrat_name_topic" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

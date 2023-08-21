@@ -8,10 +8,15 @@ import com.example.evocab.data.repository.vocab.IVocabRepository
 import com.example.evocab.model.BaseReponseMissed
 import com.example.evocab.model.Word
 import com.example.evocab.model.WordRemember
+import com.example.evocab.utils.constant.ApiConstant
+import retrofit2.http.Path
 
 class FlashCardViewModel(private val flashCardRepo: IVocabRepository): BaseViewModel() {
     private val _word = MutableLiveData<Word>()
     val word: LiveData<Word> get() = _word
+
+    val _chooseMissedOrRemember = MutableLiveData<String>()
+    val chooseMissedOrRemember: LiveData<String> get() = _chooseMissedOrRemember
 
     private val _listVocab = MutableLiveData<List<Word>>()
     val listVocab: LiveData<List<Word>> get() = _listVocab
@@ -39,6 +44,27 @@ class FlashCardViewModel(private val flashCardRepo: IVocabRepository): BaseViewM
             showLoading = true
         )
     }
+
+    fun chooseMissedOrRemember(idUser: String, wordRequest: WordRemember){
+        executeTask(
+            request = {
+                flashCardRepo.chooseMissedOrRemember(idUser, wordRequest)
+            },
+            onSuccess = { _response ->
+                _response.data?.words?.let { _data ->
+                    _chooseMissedOrRemember.value = _response.message
+                    Log.e("TAG", "get1Vocab: ${_chooseMissedOrRemember.value} ", )
+                }?: kotlin.run {
+                    _chooseMissedOrRemember.value = _response.message
+                    Log.e("TAG", "get1Vocab: fail ${messageError}", )
+                }
+            },
+            onError = {
+                onErrorProcess(it)
+            }
+        )
+    }
+
     fun postWord(idUser: String, wordRemember: WordRemember){
         executeTask(
             request = {

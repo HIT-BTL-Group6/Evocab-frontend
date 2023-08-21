@@ -1,10 +1,7 @@
 package com.example.evocab.data.datasource.vocab
 
 import com.example.evocab.data.service.ApiService
-import com.example.evocab.model.BaseReponseMissed
-import com.example.evocab.model.BaseReponseWord
-import com.example.evocab.model.ListWord
-import com.example.evocab.model.WordRemember
+import com.example.evocab.model.*
 
 class VocabDataSource(private val service: ApiService.Topic): IVocabDataSource.Remote {
     override suspend fun getVocab(idWord: String): BaseReponseWord {
@@ -18,4 +15,12 @@ class VocabDataSource(private val service: ApiService.Topic): IVocabDataSource.R
     override suspend fun postWord(idUser: String, wordRemember: WordRemember): BaseReponseMissed {
         return service.postWord(idUser, wordRemember)
     }
+
+    override suspend fun chooseMissedOrRemember(
+        idUser: String,
+        wordRequest: WordRemember
+    ): PutWord {
+        return service.chooseMissedOrRemember(idUser, wordRequest)
+    }
+
 }

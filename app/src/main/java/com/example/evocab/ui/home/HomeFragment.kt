@@ -1,5 +1,6 @@
 package com.example.evocab.ui.home
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -11,6 +12,7 @@ import com.atom.android.lebo.utils.extensions.getNameTopic
 import com.example.evocab.R
 import com.example.evocab.base.BaseViewModel
 import com.example.evocab.databinding.FragmentHomeBinding
+import com.example.evocab.extension.openShowImg
 import com.example.evocab.ui.setting.SettingFragment
 import com.example.evocab.utils.constant.Constant
 import com.example.sourcebase.base.BaseFragment
@@ -38,7 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         const val EXTRAS_USER = "EXTRAS_USER"
     }
     override fun handleEvent() {
-
+        val dialog = context?.let { it1 -> Dialog(it1) }
         //Log.e(TAG, "handleEvent: user là ${viewModel.getResults.value}", )
         binding.apply {
             btnSettings.setOnClickListener {
@@ -65,6 +67,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             }
             flPractice.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_practiceFragment)
+            }
+            imvUserAvt.setOnClickListener {
+                dialog?.openShowImg()
             }
         }
 

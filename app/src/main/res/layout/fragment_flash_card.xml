@@ -51,6 +51,7 @@
             android:id="@+id/img_back_to"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:padding="5dp"
             android:src="@drawable/img"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,14 +140,15 @@
             android:id="@+id/vocab_name_meaning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
             android:text="Quả việt quất"
             android:textColor="@color/color_text_input"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/explain_vocab_vienamese"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -233,6 +235,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
+            android:padding="5dp"
             android:src="@drawable/edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -278,6 +281,7 @@
         android:id="@+id/img_remembered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="9dp"
         android:src="@drawable/correct"
         app:layout_constraintBottom_toBottomOf="@+id/img_missed"
         app:layout_constraintEnd_toEndOf="@+id/flashcard"
@@ -287,6 +291,7 @@
 
     <ImageView
         android:id="@+id/img_missed"
+        android:padding="9dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -301,6 +306,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:text="Đã nhớ"
         app:layout_constraintEnd_toEndOf="@+id/img_remembered"
         app:layout_constraintStart_toStartOf="@+id/img_remembered"
@@ -311,6 +317,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:text="Chưa nhớ"
         app:layout_constraintEnd_toEndOf="@+id/img_missed"
         app:layout_constraintStart_toStartOf="@+id/img_missed"
@@ -376,6 +383,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textStyle="italic"
+        android:text="*Chạm vào thẻ để lật mặt sau*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

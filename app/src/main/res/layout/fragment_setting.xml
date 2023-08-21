@@ -157,7 +157,7 @@
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Dinhthi"
+            android:text="dinhthi"
             android:textColor="@color/color_text_input"
             android:textSize="15dp"
             android:textStyle="bold"

@@ -26,8 +26,8 @@ interface ApiService {
         @GET(ApiConstant.ENDPOINT.USER.GET_USER)
         suspend fun getUserInfor() : BaseReponseUser
         //chưa sửa
-        @PATCH(ApiConstant.ENDPOINT.USER.PATCH_USER)
-        suspend fun changUsername(@Body user: UserCanChange): BaseReponseSetting
+        @PATCH("${ApiConstant.ENDPOINT.USER.PATCH_USER_SETTING}/{idUser}")
+        suspend fun changUsername(@Path(ApiConstant.FILED.IDUSER) idUser: String, @Body user: UserCanChange): BaseReponseSetting
     }
     interface Topic{
         @GET(ApiConstant.ENDPOINT.TOPIC.GET_TOPIC)
@@ -49,5 +49,8 @@ interface ApiService {
         //api/v1/user-words/add-word
         @POST("${ApiConstant.ENDPOINT.TOPIC.POST_WORD}/{idUser}")
         suspend fun postWord(@Path(ApiConstant.FILED.IDUSER) idUser: String, wordRemember: WordRemember): BaseReponseMissed
+
+        @PUT("${ApiConstant.ENDPOINT.TOPIC.PUT_WORD_CARD}/{idUser}")
+        suspend fun chooseMissedOrRemember(@Path(ApiConstant.FILED.IDUSER) idUser: String, wordRequest: WordRemember): PutWord
     }
 }

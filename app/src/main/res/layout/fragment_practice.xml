@@ -36,6 +36,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -126,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Kiểm tra"
-        android:background="@drawable/bg_home_element_light_blue"
+        android:background="@drawable/bg_btn_check"
         app:layout_constraintBottom_toTopOf="@+id/txt_return_flashcard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -135,6 +136,7 @@
         android:id="@+id/practice_screen_change"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_check_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

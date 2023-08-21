@@ -16,10 +16,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.atom.android.lebo.utils.extensions.getIdTopic
+import com.atom.android.lebo.utils.extensions.getIdUser
+import com.atom.android.lebo.utils.extensions.getStatus
+import com.atom.android.lebo.utils.extensions.saveStatusTopic
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentFlashCardBinding
 import com.example.evocab.extension.*
 import com.example.evocab.model.Word
+import com.example.evocab.model.WordRemember
 import com.example.sourcebase.base.BaseFragment
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,8 +36,11 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
     private var _listVocabLocal = MutableLiveData<List<Word>>()
     private val listVocabLocal: LiveData<List<Word>> get() = _listVocabLocal
     private var list : List<Word> = mutableListOf()
-    private var idInList: Int = 0
     private val sharedPreferences = get<SharedPreferences>()
+    val _wordNow = MutableLiveData<Word>()
+    val wordNow: LiveData<Word> get() = _wordNow
+    private var idInList: Int = 0
+
 
 
     override fun destroy() {
@@ -74,11 +81,29 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             if(idInList < listVocabLocal.value?.size!!){
                 val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
                 viewModel.get1Vocab(idWord)
+                val wordRequest = wordNow.value?.let { it1 -> WordRemember(it1.id, false, "") }
+                sharedPreferences.getIdUser()
+                    ?.let { it1 -> wordRequest?.let { it2 ->
+                        viewModel.chooseMissedOrRemember(it1,
+                            it2
+                        )
+                    } }
                 frontFlashCard()
                 pasteWord()
+                listVocabLocal.value?.let {
+                    binding.numberCard.text = "${idInList+1}/${it.size}"
+                    binding.progressBarLoading.progress = ((idInList+1)*1.0/it.size*100).toInt()
+                    binding.valueOfProgressbar.text = "${((idInList+1)*1.0/it.size*100).toInt()}%"
+
+                    val status: Double = idInList.toDouble()
+                    sharedPreferences.saveStatusTopic(status.toString(), binding.nameTopic.text.toString())
+
+                }?:kotlin.run {
+
+                }
                 idInList++
             }else{
-
+                dialog?.openDlCongrate(false, binding.nameTopic.text.toString())
             }
 
             //xử lý chuyển sang từ tiếp theo trong listVocabLocal
@@ -87,14 +112,23 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             if(idInList < listVocabLocal.value?.size!!){
                 val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
                 viewModel.get1Vocab(idWord)
+                val wordRequest = wordNow.value?.let { it1 -> WordRemember(it1.id, true, "") }
+                sharedPreferences.getIdUser()
+                    ?.let { it1 -> wordRequest?.let { it2 ->
+                        viewModel.chooseMissedOrRemember(it1,
+                            it2
+                        )
+                    } }
                 frontFlashCard()
                 pasteWord()
                 updateLayoutWhenChangeCard()
                 idInList++
             }else{
-
+                dialog?.openDlCongrate(false, binding.nameTopic.text.toString())
             }
-            //xử lý chuyển sang từ tiếp theo trong listVocabLocal
+        }
+        viewModel.chooseMissedOrRemember.observe(viewLifecycleOwner){
+            Log.e(TAG, "handleEvent: đã thay đổi hay chưa : ${it}", )
         }
 
     }
@@ -106,6 +140,8 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
             binding.progressBarLoading.progress = ((idInList+1)*1.0/it.size*100).toInt()
             binding.valueOfProgressbar.text = "${((idInList+1)*1.0/it.size*100).toInt()}%"
 
+            val status: Double = idInList.toDouble()
+            sharedPreferences.saveStatusTopic(status.toString(), binding.nameTopic.text.toString())
         }?:kotlin.run {
 
         }
@@ -115,6 +151,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
         updateLayoutWhenChangeCard()
         getListWord()
 
+
         viewModel.listVocab.observe(viewLifecycleOwner){
             if(listVocabLocal!=null){
                 val idWord = listVocabLocal.value?.get(idInList)?.id.toString()
@@ -123,6 +160,8 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
                 binding.valueOfProgressbar.text = "${((idInList+1)*1.0/it.size*100).toInt()}%"
             }
         }
+
+
         Log.e(TAG, "bindData: ${viewModel.word.value}", )
         frontFlashCard()
         pasteWord()
@@ -173,6 +212,7 @@ class FlashCardFragment : BaseFragment<FragmentFlashCardBinding>(FragmentFlashCa
                     UsPronounce.text = it.pronunciation
                     UkPronounce.text = it.pronunciation
                     nameTopic.text = it.nameTopic
+                    _wordNow.value = it
                 }
             }else{
                 Log.e(TAG, "pasteWord: Lỗi từ", )

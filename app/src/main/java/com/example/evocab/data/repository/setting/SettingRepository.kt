@@ -7,7 +7,7 @@ import com.example.evocab.model.UserCanChange
 import com.example.sourcebase.base.BaseReponsitory
 
 class SettingRepository(private val settingRepo: ISettingDataSource.Remote): BaseReponsitory(), ISettingRepository {
-    override suspend fun changeUsername(userCanChange1: UserCanChange): DataResult<BaseReponseSetting> {
-        return getResult { settingRepo.changeUsername(userCanChange1) }
+    override suspend fun changeUsername(idUser: String, userCanChange1: UserCanChange): DataResult<BaseReponseSetting> {
+        return getResult { settingRepo.changeUsername(idUser, userCanChange1) }
     }
 }

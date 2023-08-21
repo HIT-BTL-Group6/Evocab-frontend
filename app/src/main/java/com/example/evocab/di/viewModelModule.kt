@@ -4,6 +4,7 @@ import com.example.evocab.ui.flashcard.FlashCardViewModel
 import com.example.evocab.ui.forgotpass.ForgotPassViewModel
 import com.example.evocab.ui.home.HomeViewModel
 import com.example.evocab.ui.login.LoginViewModel
+import com.example.evocab.ui.profile.ProfileViewModel
 import com.example.evocab.ui.register.SignupViewModel
 import com.example.evocab.ui.setting.SettingViewModel
 import com.example.evocab.ui.topic.TopicViewModel
@@ -15,7 +16,8 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get(), get(), get()) }
     viewModel { ForgotPassViewModel(get()) }
     viewModel { HomeViewModel(get(), get()) }
-    viewModel { SettingViewModel(get(), get()) }
+    viewModel { SettingViewModel(get(), get(), get()) }
     viewModel { TopicViewModel(get()) }
     viewModel { FlashCardViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
 }

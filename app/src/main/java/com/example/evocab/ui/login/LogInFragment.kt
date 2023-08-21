@@ -33,17 +33,6 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
         viewModel.setIdTopic()
 
 
-//        viewModel.apply {
-//            loginState.observe(viewLifecycleOwner) {
-//                context?.showToast(it.toString())
-////                activityViewModel.getUser()
-////                activityViewModel.registerTokenNotification()
-//                if (findNavController().popBackStack().not()) {
-//                    findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
-//                }
-//            }
-//        }
-
     }
 
     override fun handleEvent() {
@@ -97,7 +86,6 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
                 Constant.MessageAPI.LOGIN_SUCCESSFUL -> {
                     binding.passwErrorMess.text = ""
                     binding.usernameErrorMess.text = ""
-                    Toast.makeText(context, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
                     if(userName1 == ""){
                         findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                     }else{

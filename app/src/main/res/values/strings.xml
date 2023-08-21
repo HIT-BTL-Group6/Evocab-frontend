@@ -41,7 +41,7 @@
     <string name="vocabulary_error">Lỗi từ vựng</string>
     <string name="game_bug">Lỗi trò chơi</string>
     <string name="meaning_error">Lỗi nghĩa</string>
-    <string name="string_learning_how_long">Bạn đã học liên tục 30 ngày</string>
+    <string name="string_learning_how_long">Bạn đã học liên tục 5 ngày</string>
     <string name="string_username">Username</string>
     <string name="string_family">Family</string>
     <string name="string_user_gmail">usercontact@gmail.com</string>
@@ -52,8 +52,8 @@
     <string name="percent">0%</string>
     <string name="script">What do you want \nto do to day</string>
     <string name="test">Test</string>
-    <string name="remembered">Từ vựng đã nhớ</string>
-    <string name="practice">Luyện Tập</string>
-    <string name="missed">chưa nhớ</string>
-    <string name="topic">Chủ đề</string>
+    <string name="remembered">Word Remember</string>
+    <string name="practice">Practice</string>
+    <string name="missed">Word Missed</string>
+    <string name="topic">Change Topic</string>
 </resources>

@@ -9,6 +9,7 @@ interface IVocabDataSource {
         suspend fun getVocab(idWord: String): BaseReponseWord
         suspend fun getAllVocabInTopic(idTopic: String): ListWord
         suspend fun postWord(idUser: String, wordRemember: WordRemember): BaseReponseMissed
+        suspend fun chooseMissedOrRemember(idUser: String, wordRequest: WordRemember): PutWord
     }
 
     interface Local {

@@ -17,6 +17,13 @@ class VocabRepository(
         return getResult { remote.getAllVocabInTopic(idTopic) }
     }
 
+    override suspend fun chooseMissedOrRemember(
+        idUser: String,
+        wordRequest: WordRemember
+    ): DataResult<PutWord> {
+        return getResult { remote.chooseMissedOrRemember(idUser, wordRequest) }
+    }
+
     override suspend fun insertWord(word: Word): DataResult<Long> {
         return getResult { local.insertWord(word) }
     }

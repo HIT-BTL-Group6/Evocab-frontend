@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.atom.android.lebo.utils.extensions.getStatus
 import com.atom.android.lebo.utils.extensions.saveIdTopic
 import com.example.evocab.R
 import com.example.evocab.databinding.FragmentTopicBinding
@@ -67,7 +68,6 @@ class TopicFragment :BaseFragment<FragmentTopicBinding>(FragmentTopicBinding::in
     override fun bindData() {
         binding.txtviewErrorNotFound.visibility = View.GONE
         viewModel.getAllTopic()
-
         viewModel.TopicResults.observe(viewLifecycleOwner){
             Log.e("TopicFragment", "bindData: dữ liệu lấy liên tục: ${it} ", )
             if(it!=null){

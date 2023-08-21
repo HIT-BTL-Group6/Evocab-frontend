@@ -3,30 +3,30 @@
     <item
         android:id="@+id/homeFragment"
         android:title="Home"
-        android:icon="@drawable/ic_bottom_nav_1"
+        android:icon="@drawable/home"
         />
 
     <item
         android:id="@+id/flashCardFragment"
         android:title="FlashCard"
-        android:icon="@drawable/ic_bottom_nav_2"
+        android:icon="@drawable/flash_card"
         />
 
     <item
         android:id="@+id/examFragment"
         android:title="Test"
-        android:icon="@drawable/ic_bottom_nav_3"
+        android:icon="@drawable/exam"
         />
 
     <item
         android:id="@+id/classroomFragment"
         android:title="Classroom"
-        android:icon="@drawable/ic_bottom_nav_4"
+        android:icon="@drawable/multiple_silhouette"
         />
 
     <item
         android:id="@+id/profileFragment2"
         android:title="Profile"
-        android:icon="@drawable/ic_bottom_nav_5"
+        android:icon="@drawable/user"
         />
 </menu>

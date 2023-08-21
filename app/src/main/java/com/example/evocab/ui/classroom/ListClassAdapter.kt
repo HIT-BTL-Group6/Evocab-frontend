@@ -19,8 +19,8 @@ class ListClassAdapter(private val onClick: (Classroom) -> Unit) :
     // sửa viiew holder
     inner class ViewHolder(val binding: ItemClassroomBinding) :
         BaseViewHolder<Classroom>(binding) {
-        override fun binView(item: Classroom) {
-            super.binView(item)
+        override fun binView(item: Classroom, isItemSelected: Boolean) {
+            super.binView(item, isItemSelected)
             binding.apply {
                 tvClassroomName.text = item.name
                 imvAvtClassroom.loadImage(Uri.parse(item.img_avt))

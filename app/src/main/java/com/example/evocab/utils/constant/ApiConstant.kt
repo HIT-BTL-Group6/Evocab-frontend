@@ -26,6 +26,7 @@ object ApiConstant {
 
             //chưa sửa
             const val PATCH_USER ="$API_V1_AUTH/me"
+            const val PATCH_USER_SETTING ="/api/v1/users/"
         }
 
         object TOPIC{
@@ -33,6 +34,7 @@ object ApiConstant {
             const val GET_VOCAB = "/api/v1/words/"
             const val GET_VOCAB_REMEMBER = "/api/v1/user-words/remeber-word"
             const val POST_WORD = "/api/v1/user-words/remeber-word"
+            const val PUT_WORD_CARD = "/api/v1/user-words/update-word"
         }
 
 

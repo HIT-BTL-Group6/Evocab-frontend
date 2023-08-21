@@ -5,6 +5,6 @@ import com.example.evocab.model.UserCanChange
 
 interface ISettingDataSource {
     interface Remote{
-        suspend fun changeUsername(userCanChange: UserCanChange): BaseReponseSetting
+        suspend fun changeUsername(idUser: String, userCanChange: UserCanChange): BaseReponseSetting
     }
 }
