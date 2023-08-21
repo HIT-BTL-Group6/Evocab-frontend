@@ -33,17 +33,6 @@ class LogInFragment() : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding:
         viewModel.setIdTopic()
 
 
-//        viewModel.apply {
-//            loginState.observe(viewLifecycleOwner) {
-//                context?.showToast(it.toString())
-////                activityViewModel.getUser()
-////                activityViewModel.registerTokenNotification()
-//                if (findNavController().popBackStack().not()) {
-//                    findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
-//                }
-//            }
-//        }
-
     }
 
     override fun handleEvent() {

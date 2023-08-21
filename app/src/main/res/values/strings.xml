@@ -41,7 +41,7 @@
     <string name="vocabulary_error">Lỗi từ vựng</string>
     <string name="game_bug">Lỗi trò chơi</string>
     <string name="meaning_error">Lỗi nghĩa</string>
-    <string name="string_learning_how_long">Bạn đã học liên tục 30 ngày</string>
+    <string name="string_learning_how_long">Bạn đã học liên tục 5 ngày</string>
     <string name="string_username">Username</string>
     <string name="string_family">Family</string>
     <string name="string_user_gmail">usercontact@gmail.com</string>

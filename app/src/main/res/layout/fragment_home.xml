@@ -40,7 +40,7 @@
             android:layout_margin="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="@string/string_username"
+            android:text="dinhthi1440"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -176,9 +176,9 @@
                 android:id="@+id/fl_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/bg_home_element_light_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -298,11 +298,10 @@
                 android:id="@+id/fl_test"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_home_element_light_green"
                 app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout4"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
                 <TextView
@@ -339,10 +338,9 @@
                 android:id="@+id/fl_remembered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_home_element_light_blue"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/fl_test"
                 app:layout_constraintTop_toBottomOf="@+id/fl_test">
 
                 <TextView
